@@ -15,7 +15,7 @@ body{
 
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
 
@@ -33,6 +33,7 @@ img{
     justify-content: center;
     align-items: center; 
     margin: 20px;
+    width: 300px;
 }
 
 
@@ -61,7 +62,7 @@ form{
 }
 
 input{
-    width: 300px;
+    width: 150%;
     height: 50px;
     border-radius: 20px;
     background: #d9d9d9;
@@ -70,7 +71,7 @@ input{
 }
 
 button{
-    width: 100%;
+    width: 150%;
     height: 50px;
     border-radius: 20px;
     background: #DE91BC;
@@ -84,9 +85,21 @@ button{
     margin-bottom: 10px;
 }
 
-@media (width >= 1000px){
+@media (width >= 300px){
+    .rectangle{
+        width: 400px;
+    }
+}
+
+@media (width >= 700px){
     .rectangle{
         width: 700px;
     }
 }
 
+.fa-user {
+    position: absolute; /* Để icon search nằm trên cùng bên trái của input */
+    margin-top: 10px; /* Để icon search ở giữa chiều cao của input */
+    margin-left: 10px; /* Để icon search cách lề trái input một khoảng */
+    color: gray; /* Để icon search có màu xám */
+}
