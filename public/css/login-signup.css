@@ -1,5 +1,6 @@
 body{
     background: linear-gradient(135deg, #FACDE5 0%, #EFC3DB 72.92%, #F0CBDF 97.59%);
+    font-family: 'Inter', sans-serif;
 }
 
 .rectangle{
@@ -37,7 +38,6 @@ img{
 
 
 .form-login > h2 {
-    font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 800;
     font-size: 24px;
