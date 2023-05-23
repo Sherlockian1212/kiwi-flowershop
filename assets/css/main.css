@@ -2398,6 +2398,9 @@ ul.social-link-team li a {
 .product-filters ul li.active {
   border: 2px solid #D4A5BF;
   background-color: #D4A5BF;
+}
+
+.product-filters ul li a.active {
   color: #fff;
 }
 

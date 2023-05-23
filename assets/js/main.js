@@ -85,20 +85,43 @@
          });
         }
 
-        // projects filters isotop
+        // // projects filters isotop
+        // $(".product-filters li").on('click', function () {
+        //
+        //     $(".product-filters li").removeClass("active");
+        //     $(this).addClass("active");
+        //
+        //     var selector = $(this).attr('data-filter');
+        //
+        //     $(".product-lists").isotope({
+        //         filter: selector,
+        //     });
+        //
+        // });
+
+        // Check if a filter is stored in sessionStorage
+        const activeFilter = sessionStorage.getItem('activeFilter');
+        if (activeFilter) {
+            // Add active class to the stored filter
+            $('.product-filters li[data-filter="' + activeFilter + '"]').addClass('active');
+        }
+
+        // Handle click event on product filters
         $(".product-filters li").on('click', function () {
-            
             $(".product-filters li").removeClass("active");
             $(this).addClass("active");
 
-            var selector = $(this).attr('data-filter');
+            const selector = $(this).attr('data-filter');
+
+            // Store the active filter in sessionStorage
+            sessionStorage.setItem('activeFilter', selector);
 
             $(".product-lists").isotope({
                 filter: selector,
             });
-            
         });
-        
+
+
         // isotop inner
         $(".product-lists").isotope();
 
