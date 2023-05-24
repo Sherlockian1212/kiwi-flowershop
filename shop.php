@@ -117,7 +117,7 @@ include('function/common_functions.php')
 		</div>
 	</div>
 	<!-- end search arewa -->
-	
+
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
@@ -132,7 +132,9 @@ include('function/common_functions.php')
 		</div>
 	</div>
 	<!-- end breadcrumb section -->
-
+	<?php
+		cart();
+	?>
 	<!-- products -->
 	<div class="product-section mt-100 mb-50">
 		<div class="container">

@@ -1,6 +1,5 @@
 <?php
 include("./include/connect.php");
-
 function getProducts(){
     global $con;
         $select_query = "Select * from `products` order by product_title";
@@ -23,47 +22,11 @@ function getProducts(){
                             </div>
                         <h3>$product_title</h3>
                         <p class='product-price'><span>Per Kg</span> $product_price VNĐ </p>
-                        <a href='cart.html' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>
+                        <a href='shop.php?add_to_cart=$product_id' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>
                         </div>
                     </div>";
         }
 }
-
-//function getUniqueCategory(){
-//    global $con;
-//        $category_id = $_GET['category'];
-//        $select_query = "Select * from `products`";
-//        $result_query = mysqli_query($con, $select_query);
-//        $numRow = mysqli_num_rows($result_query);
-//        if($numRow == 0) {
-//            echo "<h2 class='text-center m-auto'>Nothing here.</h2>";
-//        }
-//        else
-//        {
-//            while ($row = mysqli_fetch_assoc($result_query)) {
-//                $product_id = $row['product_id'];
-//                $product_title = $row['product_title'];
-//                $product_description = $row['product_description'];
-//                $product_keywords = $row['product_keywords'];
-//                $category_id = $row['category_id'];
-//                $product_image = $row['product_image'];
-//                $product_price = $row['product_price'];
-//                $date = $row['date'];
-//                $status = $row['status'];
-//                echo "
-//						<div class='col-lg-4 col-md-6 text-center $category_id'>
-//							<div class='single-product-item'>
-//								<div class='product-image'>
-//									<a href='single-product.php'><img src='./admin/product_images/$product_image' alt=''></a>
-//								</div>
-//							<h3>$product_title</h3>
-//							<p class='product-price'><span>Per Kg</span> $product_price VNĐ </p>
-//							<a href='cart.html' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>
-//							</div>
-//						</div>";
-//            }
-//        }
-//}
 
 function getCategories(){
     global $con;
@@ -107,7 +70,7 @@ function searchProduct()
 								</div>
 							<h3>$product_title</h3>
 							<p class='product-price'><span>Per Kg</span> $product_price VNĐ </p>
-							<a href='cart.html' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>
+							<a href='shop.php?add_to_cart=$product_id' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>
 							</div>
 						</div>";
         }
@@ -147,7 +110,7 @@ function viewDetails(){
 								<form action='index.php''>
 									<input type='number' placeholder='0'>
 								</form>
-								<a href='cart.html' class='cart-btn'><i class='fas fa-shopping-cart'></i>
+								<a href='shop.php?add_to_cart=$product_id' class='cart-btn'><i class='fas fa-shopping-cart'></i>
 									Thêm vào giỏ hàng</a>
 							</div>
 							<h4>Share:</h4>
@@ -197,5 +160,54 @@ function viewRelatedProduct(){
                 }
             }
         }
+    }
+}
+
+//get IP address
+function getIPAddress() {
+    //whether ip is from the share internet
+    if(!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    }
+    //whether ip is from the proxy
+    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+
+    else{
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
+
+//cart function
+
+function cart(){
+    global $con;
+    if (isset($_GET['add_to_cart']))
+    {
+        $get_ip_address = getIPAddress();
+        $get_product_id = (int)$_GET['add_to_cart'];
+        echo gettype($get_ip_address);
+        echo gettype($get_product_id);
+        echo "<h2>$get_ip_address, $get_product_id</h2>";
+        $select_query = "Select * from `cartdetail` where product_id='$get_product_id' and ip_address='$get_ip_address'";
+        $result_select = mysqli_query($con, $select_query);
+        $number = mysqli_num_rows($result_select);
+        echo "<h2>$result_select</h2>";
+        if ($number)
+        {
+            echo "<script>alert('This product is already inside your cart!')</script>";
+        }
+        else
+        {
+            mysqli_error($con);
+//            $insert_query = "insert into `cart_details` (product_id, ip_address, quantity) values ($get_product_id, $get_ip_address, 0)";
+//            $result_insert_query = mysqli_query($con, $insert_query);
+//            if ($result_insert_query)
+//                echo "<script>alert('Add item successfully!')</script>";
+        }
+        echo "<script>window.open('shop.php', '_self')</script>";
+
     }
 }
