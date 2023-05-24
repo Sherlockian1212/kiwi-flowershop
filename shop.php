@@ -65,9 +65,9 @@ include('function/common_functions.php')
 							<ul>
 								<li class="current-list-item"><a href="index.php">Trang chủ</a>
 								</li>
-								<li><a href="shop.html">Sản phẩm</a>
+								<li><a href="#">Sản phẩm</a>
 									<ul class="sub-menu">
-										<li><a href="shop.html">Tất cả sản phẩm</a></li>
+										<li><a href="#">Tất cả sản phẩm</a></li>
 										<li><a href="cart.html">Giỏ hàng</a></li>
 										<li><a href="checkout.html">Đặt hàng</a></li>
 									</ul>
@@ -105,13 +105,13 @@ include('function/common_functions.php')
 			<div class="row">
 				<div class="col-lg-12">
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
+					<form class="search-bar" action="search_product.php" method="get">
 						<div class="search-bar-tablecell">
 							<h3>Search For:</h3>
-							<input type="text" placeholder="Keywords">
-							<button type="submit">Search <i class="fas fa-search"></i></button>
+							<input type="search" placeholder="Keywords" name="search_data">
+							<input name="search_data_product" value="Search" class="btn btn-outline-light w-50" type="submit">Search<i class="fas fa-search"></i></input>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -141,6 +141,7 @@ include('function/common_functions.php')
                 <div class="col-md-12">
                     <div class="product-filters">
                         <ul>
+							<li class="active" data-filter="*">All</li>
 							<?php
 								getCategories();
 							?>
@@ -150,21 +151,24 @@ include('function/common_functions.php')
             </div>
 			<div class="row product-lists">
 				<?php
-					getProducts();
+					if(!isset($_GET['search_data_product']))
+						getProducts();
+					else
+						searchProduct();
 				?>
-			<div class="row">
-				<div class="col-lg-12 text-center p-20">
-					<div class="pagination-wrap m-0">
-						<ul>
-							<li><a href="#">Prev</a></li>
-							<li><a href="#">1</a></li>
-							<li><a class="active" href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">Next</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
+<!--			<div class="row">-->
+<!--				<div class="col-lg-12 text-center p-20">-->
+<!--					<div class="pagination-wrap m-0">-->
+<!--						<ul>-->
+<!--							<li><a href="#">Prev</a></li>-->
+<!--							<li><a href="#">1</a></li>-->
+<!--							<li><a class="active" href="#">2</a></li>-->
+<!--							<li><a href="#">3</a></li>-->
+<!--							<li><a href="#">Next</a></li>-->
+<!--						</ul>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
 		</div>
 	</div>
 	<!-- end products -->
