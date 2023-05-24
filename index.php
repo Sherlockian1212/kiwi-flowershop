@@ -232,7 +232,7 @@
 			<div class="col-lg-4 col-md-6 text-center">
 				<div class="single-product-item">
 					<div class="product-image">
-						<a href="single-product.html"><img
+						<a href="single-product.php"><img
 								src="assets/img/products/tulip_hong.jpg" alt=""></a>
 					</div>
 					<h3>Tulip hồng</h3>
@@ -244,7 +244,7 @@
 			<div class="col-lg-4 col-md-6 text-center">
 				<div class="single-product-item">
 					<div class="product-image">
-						<a href="single-product.html"><img
+						<a href="single-product.php"><img
 								src="assets/img/products/hoa_hong_trang.jpg" alt=""></a>
 					</div>
 					<h3>Lan hồng</h3>
@@ -256,7 +256,7 @@
 			<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
 				<div class="single-product-item">
 					<div class="product-image">
-						<a href="single-product.html"><img
+						<a href="single-product.php"><img
 								src="assets/img/products/hoa_hong_trang.jpg" alt=""></a>
 					</div>
 					<h3>Hoa hồng trắng</h3>
