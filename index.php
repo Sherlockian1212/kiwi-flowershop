@@ -1,3 +1,8 @@
+<?php
+global $con;
+include('include/connect.php');
+include('function/common_functions.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +73,7 @@
 							<li><a href="shop.php">Sản phẩm</a>
 								<ul class="sub-menu">
 									<li><a href="shop.php">Tất cả sản phẩm</a></li>
-									<li><a href="cart.html">Giỏ hàng</a></li>
+									<li><a href="cart.php">Giỏ hàng</a></li>
 									<li><a href="checkout.html">Đặt hàng</a></li>
 								</ul>
 							</li>
@@ -80,8 +85,12 @@
 									<a href="user.html" class="customer-account">
 										<i class="fas fa-user-alt"></i>
 									</a>
-									<a class="shopping-cart" href="cart.html"><i class="fas
-													fa-shopping-cart"></i></a>
+									<a class="shopping-cart" href="cart.php"><i class="fas
+												fa-shopping-cart"></i><sup>
+											<?php
+												cart_item();
+											?>
+										</sup></a>
 									<a class="mobile-hide search-bar-icon" href="#"><i class="fas
 													fa-search"></i></a>
 								</div>
@@ -237,7 +246,7 @@
 					</div>
 					<h3>Tulip hồng</h3>
 					<p class="product-price"> 70$ </p>
-					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm
+					<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm
 						vào giỏ hàng</a>
 				</div>
 			</div>
@@ -249,7 +258,7 @@
 					</div>
 					<h3>Lan hồng</h3>
 					<p class="product-price"> 70$ </p>
-					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm
+					<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm
 						vào giỏ hàng</a>
 				</div>
 			</div>
@@ -261,7 +270,7 @@
 					</div>
 					<h3>Hoa hồng trắng</h3>
 					<p class="product-price"> 35$ </p>
-					<a href="cart.html" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm
+					<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm
 						vào giỏ hàng</a>
 				</div>
 			</div>
@@ -300,7 +309,7 @@
 							class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>
 						<div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>
 						<div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
-				<a href="cart.html" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i>Thêm
+				<a href="cart.php" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i>Thêm
 					vào giỏ hàng</a>
 			</div>
 		</div>

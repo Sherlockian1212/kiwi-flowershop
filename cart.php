@@ -1,3 +1,8 @@
+<?php
+global $con;
+include('include/connect.php');
+include('function/common_functions.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +36,25 @@
 	<!-- responsive -->
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
+	<style>
+		.btn-rounded{
+			border: none;
+			border-radius: 5px;
+			padding: 10px;
+		}
+		td {
+			max-width: 100px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.cart-table-wrap tbody tr td{
+			padding: 20px 5px;
+		}
+	</style>
 </head>
 <body>
-	
+
 	<!--PreLoader-->
     <div class="loader">
         <div class="loader-inner">
@@ -41,7 +62,7 @@
         </div>
     </div>
     <!--PreLoader Ends-->
-	
+
 	<!-- header -->
 	<div class="top-header-area" id="sticker">
 		<div class="container">
@@ -76,8 +97,6 @@
 										<a href="user.html" class="customer-account">
 											<i class="fas fa-user-alt"></i>
 										</a>
-										<a class="shopping-cart" href="cart.html"><i class="fas
-												fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas
 												fa-search"></i></a>
 									</div>
@@ -93,27 +112,27 @@
 		</div>
 	</div>
 	<!-- end header -->
-	
+
 	<!-- search area -->
 	<div class="search-area">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
+					<form class="search-bar" action="search_product.php" method="get">
 						<div class="search-bar-tablecell">
-							<h3>Bạn muốn tìm gì?</h3>
-							<input type="text" placeholder="Từ khóa">
-							<button type="submit">Tìm kiếm<i class="fas fa-search"></i></button>
+							<h3>Search For:</h3>
+							<input type="search" placeholder="Keywords" name="search_data">
+							<input name="search_data_product" value="Search" class="btn btn-outline-light w-50" type="submit">Search<i class="fas fa-search"></i></input>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- end search area -->
 
-	
+
 	<!-- breadcrumb-section -->
 	<div class="breadcrumb-section breadcrumb-bg">
 		<div class="container">
@@ -132,7 +151,7 @@
 	<!-- cart -->
 	<div class="cart-section mt-150 mb-150">
 		<div class="container">
-			<div class="row">
+			<form class="row" method="post">
 				<div class="col-lg-8 col-md-12">
 					<div class="cart-table-wrap">
 						<table class="cart-table">
@@ -144,33 +163,39 @@
 									<th class="product-price">Đơn giá</th>
 									<th class="product-quantity">Số lượng</th>
 									<th class="product-total">Thành tiền</th>
+									<th class="product-total">Thao tác</th>
 								</tr>
 							</thead>
 							<tbody>
+								<?php
+									$get_ip_address = getIPAddress();
+									$total = 0;
+									$cart_query = "SELECT * FROM `cart_details` WHERE ip_address = '$get_ip_address'";
+									$result = mysqli_query($con, $cart_query);
+									while ($row = mysqli_fetch_array($result)){
+										$product_id = $row['product_id'];
+										$select_products = "Select * from `products` where product_id=$product_id";
+										$result_products = mysqli_query($con, $select_products);
+										while($row_product_price=mysqli_fetch_array($result_products)){
+											$product_price = array($row_product_price['product_price']);
+											$product_table = $row_product_price['product_price'];
+											$product_title = $row_product_price['product_title'];
+											$product_image = $row_product_price['product_image'];
+											$product_values = array_sum($product_price);
+											$total += $product_values;
+								?>
 								<tr class="table-body-row">
 									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-1.jpg" alt=""></td>
-									<td class="product-name">Strawberry</td>
-									<td class="product-price">$85</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
+									<td class="product-image"><img src="admin/product_images/<?php echo $product_image?>" alt=""></td>
+									<td class="product-name"><?php echo $product_title?></td>
+									<td class="product-price"><?php echo $product_table?></td>
+									<td class="product-quantity"><input type="number" placeholder="0" value=""></td>
+									<td class="product-total"><?php echo $product_values?></td>
+									<td><input type="submit" class="btn-info btn-rounded" value="Cập nhật"></td>
 								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-2.jpg" alt=""></td>
-									<td class="product-name">Berry</td>
-									<td class="product-price">$70</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
-								<tr class="table-body-row">
-									<td class="product-remove"><a href="#"><i class="far fa-window-close"></i></a></td>
-									<td class="product-image"><img src="assets/img/products/product-img-3.jpg" alt=""></td>
-									<td class="product-name">Lemon</td>
-									<td class="product-price">$35</td>
-									<td class="product-quantity"><input type="number" placeholder="0"></td>
-									<td class="product-total">1</td>
-								</tr>
+								<?php
+										}}
+								?>
 							</tbody>
 						</table>
 					</div>
@@ -196,7 +221,12 @@
 								</tr>
 								<tr class="total-data">
 									<td><strong>Tổng cộng: </strong></td>
-									<td>$545</td>
+									<td>
+										<?php
+											total_cart_price();
+										?>
+										VNĐ
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -205,17 +235,17 @@
 						</div>
 					</div>
 
-					<div class="coupon-section">
-						<h3>Áp dụng khuyến mãi</h3>
-						<div class="coupon-form-wrap">
-							<form action="index.php">
-								<p><input type="text" placeholder="Mã giảm giá"></p>
-								<p><input type="submit" value="Kiểm tra"></p>
-							</form>
-						</div>
-					</div>
+<!--					<div class="coupon-section">-->
+<!--						<h3>Áp dụng khuyến mãi</h3>-->
+<!--						<div class="coupon-form-wrap">-->
+<!--							<form action="index.php">-->
+<!--								<p><input type="text" placeholder="Mã giảm giá"></p>-->
+<!--								<p><input type="submit" value="Kiểm tra"></p>-->
+<!--							</form>-->
+<!--						</div>-->
+<!--					</div>-->
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<!-- end cart -->
@@ -253,7 +283,7 @@
 		</div>
 	</div>
 	<!-- end footer -->
-	
+
 	<!-- copyright -->
 	<div class="copyright">
 		<div class="container">
@@ -278,7 +308,7 @@
 		</div>
 	</div>
 	<!-- end copyright -->
-	
+
 	<!-- jquery -->
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
 	<!-- bootstrap -->
