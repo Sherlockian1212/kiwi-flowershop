@@ -1,4 +1,8 @@
-<?php include('connect.php');?>
+<?php
+global $con;
+include('include/connect.php');
+include('function/common_functions.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,7 +69,7 @@ if(isset($_POST['user_login'])){
     $user_username = $_POST['user_username'];
     $user_password = $_POST['user_password'];
     $select_query = "Select * from `user_table` where username='$user_username'";
-    $result = mysqli_query($conn, $select_query);
+    $result = mysqli_query($con, $select_query);
     $row_count = mysqli_num_rows($result);
     $row_data = mysqli_fetch_assoc($result);
     if($row_count > 0 ){

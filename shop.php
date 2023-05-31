@@ -162,19 +162,6 @@ include('function/common_functions.php')
 					else
 						searchProduct();
 				?>
-<!--			<div class="row">-->
-<!--				<div class="col-lg-12 text-center p-20">-->
-<!--					<div class="pagination-wrap m-0">-->
-<!--						<ul>-->
-<!--							<li><a href="#">Prev</a></li>-->
-<!--							<li><a href="#">1</a></li>-->
-<!--							<li><a class="active" href="#">2</a></li>-->
-<!--							<li><a href="#">3</a></li>-->
-<!--							<li><a href="#">Next</a></li>-->
-<!--						</ul>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
 		</div>
 	</div>
 	<!-- end products -->

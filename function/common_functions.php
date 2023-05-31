@@ -232,13 +232,92 @@ function total_cart_price(){
     $result = mysqli_query($con, $cart_query);
     while ($row = mysqli_fetch_array($result)){
         $product_id = $row['product_id'];
+        $product_quantity = $row['quantity'];
         $select_products = "Select * from `products` where product_id=$product_id";
         $result_products = mysqli_query($con, $select_products);
         while($row_product_price=mysqli_fetch_array($result_products)){
             $product_price = array($row_product_price['product_price']);
             $product_values = array_sum($product_price);
-            $total += $product_values;
+            $total += $product_values * $product_quantity;
         }
     }
     echo $total;
+}
+
+function update_cart()
+{
+    global $con;
+    $get_ip_address = getIPAddress();
+    if (isset($_POST['update_cart'])) {
+        foreach ($_POST as $key => $value) {
+            if (strpos($key, 'qty_') !== false) {
+                $product_id = str_replace('qty_', '', $key);
+                $quantity = $_POST[$key];
+                $update_cart = "UPDATE `cart_details` SET quantity = $quantity WHERE ip_address = '$get_ip_address' AND product_id = $product_id";
+                $result_products_quantities = mysqli_query($con, $update_cart);
+            }
+        }
+    }
+}
+
+function getCartItemInfo()
+{
+    global $con;
+    $get_ip_address = getIPAddress();
+    $cart_query = "SELECT * FROM `cart_details` WHERE ip_address = '$get_ip_address'";
+    $result = mysqli_query($con, $cart_query);
+    $result_count = mysqli_num_rows($result);
+    if(!$result_count){
+        echo "
+                <img style='width: 100%; padding: 10px' src='https://th.bing.com/th/id/R.afa6a28d0ee0b5e7d55b7a5aecdfedec?rik=eOl3Z%2bU0XvmYlw&riu=http%3a%2f%2fiticsystem.com%2fimg%2fempty-cart.png&ehk=0omil1zRH7T3Pb5iTzvueamUQLSSb55vgY7dLFF8Bl8%3d&risl=&pid=ImgRaw&r=0'>
+            ";
+    }
+    else
+    {
+        while ($row = mysqli_fetch_array($result)){
+            $product_id = $row['product_id'];
+            $product_quantity = $row['quantity'];
+            $select_products = "Select * from `products` where product_id=$product_id";
+            $result_products = mysqli_query($con, $select_products);
+            while($row_product_price=mysqli_fetch_array($result_products)){
+                $product_price = array($row_product_price['product_price']);
+                $product_table = $row_product_price['product_price'];
+                $product_title = $row_product_price['product_title'];
+                $product_image = $row_product_price['product_image'];
+                $product_values = array_sum($product_price) * $product_quantity;
+                echo "<tr class='table-body-row'>
+                        <td class='product-remove'><a href='cart.php?remove_id=$product_id'><i class='far fa-window-close'></i></a></td>
+                        <td class='product-image'><img src='admin/product_images/$product_image'></td>
+                        <td class='product-name'>$product_title</td>
+                        <td class='product-price'>$product_table</td>
+                        <td class='product-quantity'><input type='number' min='0' value='$product_quantity' name='qty_$product_id' class='text-center'></td>
+                        <td class='product-total'>$product_values</td>
+                        <td><input type='submit' class='btn-info btn-rounded' value='Cập nhật' name='update_cart'></td>
+                </tr>";
+            }
+        }
+    }
+}
+
+function remove_cart_item()
+{
+    global $con;
+    $get_ip_address = getIPAddress();
+    if(isset($_GET['remove_id'])){
+        $product_id = $_GET['remove_id'];
+        $remove_cart = "DELETE from `cart_details` WHERE ip_address = '$get_ip_address' AND product_id = $product_id";
+        $result_remove_product = mysqli_query($con, $remove_cart);
+        if ($result_remove_product){
+            echo "<script>window.open('cart.php','_self')</script>";
+        }
+    }
+}
+
+function empty_cart()
+{
+    global $con;
+    $get_ip_address = getIPAddress();
+    $cart_query = "SELECT * FROM `cart_details` WHERE ip_address = '$get_ip_address'";
+    $result = mysqli_query($con, $cart_query);
+    return mysqli_num_rows($result);
 }

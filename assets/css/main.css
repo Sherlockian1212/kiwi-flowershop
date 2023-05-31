@@ -1468,6 +1468,10 @@ html, body {
 /*}*/
 
 
+.no-border{
+  border: none;
+}
+
 .homepage-bg-1 {
   background-image: url(../img/hero-bg.jpg);
 }

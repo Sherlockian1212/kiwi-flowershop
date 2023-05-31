@@ -1,4 +1,8 @@
-<?php include('connect.php');?>
+<?php
+global $con;
+include('include/connect.php');
+include('function/common_functions.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -86,13 +90,14 @@ if(isset($_POST['user_register'])){
 	
 	
 	$select_query = "Select * from `user_table` where username ='$user_username' or user_email = '$user_gmail'";
-	$result = mysqli_query($conn, $select_query);
+	$result = mysqli_query($con, $select_query);
 	$rows_count = mysqli_num_rows($result);
 	if($rows_count > 0 ){
 	    echo "<script>alert('Tài khoản hoặc email đã tồn tại')</script>";
 	} else if($user_password != $user_passwordconfirm) echo "<script>alert('Password phải giống nhau')</script>";
 	else {
 	    move_uploaded_file($user_image_tmp, "assets/img/user_images/$user_image");
-	    $insert_query = "INSERT INTO `user_table` (username, user_password, user_email, user_address,user_ip, user_mobile, user_image) VALUES ('$username','$user_password','$user_gmail','$user_adress','$user_ip','$user_phonenumber','$user_image')";
-	    $sql_execute = mysqli_query($conn, $insert_query);
+	    $insert_query = "INSERT INTO `user_table` (username, user_password, user_email, user_address,user_ip, user_mobile, user_image) VALUES ('$user_username','$user_password','$user_gmail','$user_adress','$user_ip','$user_phonenumber','$user_image')";
+	    $sql_execute = mysqli_query($con, $insert_query);
 	}
+}
