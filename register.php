@@ -51,24 +51,10 @@ include('function/common_functions.php')
 		</div> 
 		<div class="signIn">
 			<!--<button value="Register" name="user_register"><a href="login.php" name="user_register">Đăng kí</a></button>-->
-			<input type="submit" value="Register" name="user_register">
+			<input type="submit" class="submit" value="Register" name="user_register">
 			<p>Bạn đã có tài khoản?<a href="login.php">Login</a></p>
 		</div>
 		</form>
-		<div class="or">
-			Hoặc đăng kí với
-		</div>
-		<div class="list">
-			<div class="item">
-				<img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="">
-			</div>
-			<div class="item">
-				<img src="https://museumandgallery.org/wp-content/uploads/2020/03/Facebook-Icon-Facebook-Logo-Social-Media-Fb-Logo-Facebook-Logo-PNG-and-Vector-with-Transparent-Background-for-Free-Download.png" alt="">
-			</div>
-			<div class="item">
-				<img src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" alt="">
-			</div>
-		</div>
 	</div>
 
 	<script src="assets\js\login.js"></script>
