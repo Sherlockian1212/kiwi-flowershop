@@ -1,7 +1,6 @@
 <?php
 global $con;
-include('include/connect.php');
-include('function/common_functions.php')
+include('../include/connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,66 +8,46 @@ include('function/common_functions.php')
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="assets\css\login.css">
+	<link rel="stylesheet" href="../assets/css/login.css">
+	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<title>Đăng kí</title>
 </head>
 <body>
 
 	<div class="login">
 		<div class="title">KIWI SHOP</div>
-		<div class="des">
-			Tài khoản <br> của tui
-		</div>
 		<form action="" method="post" enctype="multipart/form-data">
 		<div class="group">
-			<input type="text" id="user_name" placeholder="Enter username" required="required" name="user_name">
+			<input type="text" id="user_name" placeholder="Enter username" required="required" name="user_username">
+		</div>
+		<div class="group">
+			<input type="text" id="user_gmail" placeholder="Enter email" required="required" name="user_email">
 		</div>
 		<div class="group">
 			<input type="password" id="user_password" placeholder="Enter password" required="required" name="user_password">
 			<span id="showPassword">
-				<ion-icon name="eye-outline"></ion-icon>
-				<ion-icon name="eye-off-outline"></ion-icon>
 			</span>
 		</div>
 		<div class="group">
-			<input type="password" id="user_password_confirm" placeholder="Enter password again" required="required" name="user_password_confirm">
+			<input type="password" id="user_password_confirm" placeholder="Confirm password" required="required" name="user_password_confirm">
 			<span id="showPassword">
-				<ion-icon name="eye-outline"></ion-icon>
-				<ion-icon name="eye-off-outline"></ion-icon>
 			</span>
 		</div>
-		<div class="group">
-			<input type="file" id="user_image" placeholder="Enter file" required="required" name="user_image">
-		</div>
         <div class="group">
-			<input type="text" id="user_gmail" placeholder="Enter gmail" required="required" name="user_gmail">
-		</div>  
-        <div class="group">
-			<input type="text" id="user_adress" placeholder="Enter adress" required="required" name="user_adress">
+			<input type="text" id="user_address" placeholder="Enter address" required="required" name="user_address">
 		</div> 
         <div class="group">
-			<input type="text" id="user_phonenumber" placeholder="Enter phone number" required="required" name="user_phonenumber">
+			<input type="text" id="user_contact" placeholder="Enter phone number" required="required" name="user_contact">
 		</div> 
 		<div class="signIn">
 			<!--<button value="Register" name="user_register"><a href="login.php" name="user_register">Đăng kí</a></button>-->
-			<input type="submit" value="Register" name="user_register">
-			<p>Bạn đã có tài khoản?<a href="user_area/user_login.php">Login</a></p>
+			<input type="submit" class="submit" value="Register" name="user_register">
+			<p style="margin: 0; padding-top: 10px">Bạn đã có tài khoản?<a href="user_login.php">Login</a></p>
 		</div>
 		</form>
-		<div class="or">
-			Hoặc đăng kí với
-		</div>
-		<div class="list">
-			<div class="item">
-				<img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="">
-			</div>
-			<div class="item">
-				<img src="https://museumandgallery.org/wp-content/uploads/2020/03/Facebook-Icon-Facebook-Logo-Social-Media-Fb-Logo-Facebook-Logo-PNG-and-Vector-with-Transparent-Background-for-Free-Download.png" alt="">
-			</div>
-			<div class="item">
-				<img src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" alt="">
-			</div>
-		</div>
 	</div>
 
 	<script src="assets\js\login.js"></script>
@@ -78,12 +57,12 @@ include('function/common_functions.php')
 </html>
 <?php
 if(isset($_POST['user_register'])){
-	$user_username = $_POST['user_name'];
+	$user_username = $_POST['user_username'];
 	$user_password = $_POST['user_password'];
 	$user_passwordconfirm = $_POST['user_password_confirm'];
-	$user_gmail = $_POST['user_gmail'];
-	$user_adress = $_POST['user_adress'];
-	$user_phonenumber = $_POST['user_phonenumber'] ;
+	$user_gmail = $_POST['user_email'];
+	$user_adress = $_POST['user_address'];
+	$user_phonenumber = $_POST['user_contact'] ;
 	$user_image = $_FILES['user_image']['name'];
 	$user_image_tmp = $_FILES['user_image']['tmp_name'];
 	$user_ip = 4;

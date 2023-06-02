@@ -1,28 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
 body{
     --border-color: #fff;
     color:#222;
-    background-image:   
-            linear-gradient(
-                200deg, #7045d3, #AB65F0
-            );
     font-family: Poppins;
     min-height: 100vh;
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f5f5f5;
+    background-image: url(../img/1.jpg);
+    background-size: cover;
 }
 a{
     text-decoration: none;
 }
 .login{
-    background-color: #efefef;
-    width: 270px;
+    background: rgba(255,255,255,0.7);
+    width: 600px;
     text-align: center;
     border: 2px solid var(--border-color);
     border-radius: 30px;
-    padding: 50px 30px;
+    padding: 30px;
     box-shadow: 0 50px 150px #5553;
     position: relative;
 }
@@ -62,10 +66,12 @@ a{
     display: none;
 }
 .login .recovery{
-    text-align: right;
     margin-bottom: 20px;
-    font-size: small;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-end;
 }
+
 .login .signIn button{
     background-color: #FA6A69;
     width: 100%;
@@ -91,10 +97,10 @@ a{
 .login .or::after{
     width: 50px;
     height: 1px;
-    background-image:  
-        linear-gradient(
-            to left, #444, transparent
-        );
+    background-image:
+            linear-gradient(
+                    to left, #444, transparent
+            );
     content: '';
     position: absolute;
     top: 50%;
@@ -103,10 +109,10 @@ a{
 .login .or::after{
     left: unset;
     right: 20px;
-    background-image:  
-        linear-gradient(
-            to right, #444, transparent
-        );
+    background-image:
+            linear-gradient(
+                    to right, #444, transparent
+            );
 }
 .login  .list .item img{
     width: 30px;
@@ -126,8 +132,28 @@ a{
     align-items: center;
 }
 .login .register{
-    font-size: small;
+    font-size: 14px;
+    padding-top: 10px;
+    font-weight: bold;
+    text-decoration-line: underline;
 }
 .login .recovery a{
     color: #1364cf;
+    padding: 5px;
+}
+.submit{
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    height: 45px;
+    outline: none;
+    width: 100%;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: .3s ;
+    background-color: blueviolet;
+}
+.submit:hover{
+    box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
 }

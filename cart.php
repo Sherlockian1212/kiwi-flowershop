@@ -86,7 +86,7 @@ include('function/common_functions.php')
 									<ul class="sub-menu">
 										<li><a href="shop.php">Tất cả sản phẩm</a></li>
 										<li><a href="cart.html">Giỏ hàng</a></li>
-										<li><a href="checkout.php">Đặt hàng</a></li>
+										<li><a href="user_area/checkout.php">Đặt hàng</a></li>
 									</ul>
 								</li>
 								<li><a href="about.html">Về chúng tôi</a>
@@ -94,11 +94,12 @@ include('function/common_functions.php')
 								<li><a href="contact.html">Liên hệ</a></li>
 								<li>
 									<div class="header-icons">
-										<a href="user.html" class="customer-account">
+										<a href="./user_area/user_login.php" class="customer-account">
 											<i class="fas fa-user-alt"></i>
 										</a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas
-												fa-search"></i></a>
+												fa-search"></i>
+										</a>
 									</div>
 								</li>
 							</ul>
@@ -211,7 +212,7 @@ include('function/common_functions.php')
 							</tbody>
 						</table>
 						<div class="cart-buttons">
-							<a href="checkout.php" class="boxed-btn black">Đặt hàng</a>
+							<a href="user_area/checkout.php" class="boxed-btn black">Đặt hàng</a>
 						</div>
 					</div>
 
