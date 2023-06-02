@@ -1,3 +1,8 @@
+<?php
+global $con;
+include('include/connect.php');
+include('function/common_functions.php')
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,7 +110,7 @@
 						<div class="search-bar-tablecell">
 							<h3>Bạn muốn tìm gì?</h3>
 							<input type="text" placeholder="Từ khóa">
-							<button type="submit">Tìm kiếm<i class="fas fa-search"></i></button>
+							<button name="search_data_product" value="Search" type="submit">Search<i class="fas fa-search"></i></button>
 						</div>
 					</div>
 				</div>
@@ -134,6 +139,14 @@
 	<div class="checkout-section mt-150 mb-150">
 		<div class="container">
 			<div class="row">
+				<?php
+					if(!isset($_SESSION['username'])){
+						include('user_area/user_login.php');
+					}
+					else{
+						include('payment.php');
+					}
+				?>
 				<div class="col-lg-8">
 					<div class="checkout-accordion-wrap">
 						<div class="accordion" id="accordionExample">

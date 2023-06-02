@@ -782,7 +782,7 @@ a.mobile-show {
 .search-bar-tablecell input {
   border: none;
   padding: 15px;
-  width: 60%;
+  width: 50%;
   background-color: transparent;
   border-bottom: 1px solid #D4A5BF;
   display: block;

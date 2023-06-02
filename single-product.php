@@ -74,7 +74,7 @@ include('function/common_functions.php')
 										<ul class="sub-menu">
 											<li><a href="shop.php">Tất cả sản phẩm</a></li>
 											<li><a href="cart.php">Giỏ hàng</a></li>
-											<li><a href="checkout.html">Đặt hàng</a></li>
+											<li><a href="checkout.php">Đặt hàng</a></li>
 										</ul>
 									</li>
 									<li><a href="about.html">Về chúng tôi</a>
@@ -113,7 +113,7 @@ include('function/common_functions.php')
 							<div class="search-bar-tablecell">
 								<h3>Search For:</h3>
 								<input type="search" placeholder="Keywords" name="search_data">
-								<input name="search_data_product" value="Search" class="btn btn-outline-light w-50" type="submit">Search<i class="fas fa-search"></i></input>
+								<button name="search_data_product" value="Search" type="submit">Search<i class="fas fa-search"></i></button>
 							</div>
 						</form>
 					</div>

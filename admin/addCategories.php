@@ -6,8 +6,7 @@ include('../include/connect.php');
         $select_query = "Select * from `categories` where name='$category_title'";
         $result_select = mysqli_query($con, $select_query);
         $number = mysqli_num_rows($result_select);
-        if ($number > 0)
-        {
+        if ($number > 0) {
             echo "<script>alert('This category was represented in database')</script>";
         }
         else

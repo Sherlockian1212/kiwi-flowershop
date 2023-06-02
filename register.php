@@ -52,7 +52,7 @@ include('function/common_functions.php')
 		<div class="signIn">
 			<!--<button value="Register" name="user_register"><a href="login.php" name="user_register">Đăng kí</a></button>-->
 			<input type="submit" value="Register" name="user_register">
-			<p>Bạn đã có tài khoản?<a href="login.php">Login</a></p>
+			<p>Bạn đã có tài khoản?<a href="user_area/user_login.php">Login</a></p>
 		</div>
 		</form>
 		<div class="or">

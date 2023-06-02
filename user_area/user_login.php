@@ -1,7 +1,6 @@
 <?php
 global $con;
-include('include/connect.php');
-include('function/common_functions.php')
+include('../include/connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +8,7 @@ include('function/common_functions.php')
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="assets/css/login.css">
+	<link rel="stylesheet" href="../assets/css/login.css">
 	<title>Đăng nhập</title>
 </head>
 <body>
@@ -36,7 +35,7 @@ include('function/common_functions.php')
 		<div class="signIn">
 			<!--<button name="user_login"><a href="index.php" name="user_login">Đăng nhập</a></button>-->
 			<input type="submit" value="Login" name="user_login">
-			<p><a href="index.php">Đăng nhập</a></p>
+			<p><a href="../index.php">Đăng nhập</a></p>
 		</div>
 	</form>
 		<div class="or">
@@ -54,12 +53,12 @@ include('function/common_functions.php')
 			</div>
 		</div>
 		<div class="register">
-			Bạn mới biết đến shop của tui? <a href="register.php">Đăng kí ngay</a>
+			Bạn mới biết đến shop của tui? <a href="../register.php">Đăng kí ngay</a>
 		</div>
 
 	</div>
 
-	<script src="assets/js/login.js"></script>
+	<script src="../assets/js/login.js"></script>
 	<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body> 

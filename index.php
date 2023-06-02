@@ -74,7 +74,7 @@ include('function/common_functions.php')
 								<ul class="sub-menu">
 									<li><a href="shop.php">Tất cả sản phẩm</a></li>
 									<li><a href="cart.php">Giỏ hàng</a></li>
-									<li><a href="checkout.html">Đặt hàng</a></li>
+									<li><a href="checkout.php">Đặt hàng</a></li>
 								</ul>
 							</li>
 							<li><a href="about.html">Về chúng tôi</a>
