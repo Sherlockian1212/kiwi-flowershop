@@ -1,7 +1,8 @@
 <?php
 //error_reporting(E_ERROR | E_PARSE);
-include('../include/connect.php');
 global $con;
+include('../include/connect.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +44,7 @@ global $con;
 		include('user_login.php');
 	}
 	else{
-		include('payment.php');
+		include('../payment.php');
 	}
 	?>
 <!--    <div class="loader">-->

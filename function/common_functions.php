@@ -1,5 +1,4 @@
 <?php
-include("./include/connect.php");
 function getProducts()
 {
     global $con;
@@ -311,13 +310,4 @@ function remove_cart_item()
             echo "<script>window.open('cart.php','_self')</script>";
         }
     }
-}
-
-function empty_cart()
-{
-    global $con;
-    $get_ip_address = getIPAddress();
-    $cart_query = "SELECT * FROM `cart_details` WHERE ip_address = '$get_ip_address'";
-    $result = mysqli_query($con, $cart_query);
-    return mysqli_num_rows($result);
 }

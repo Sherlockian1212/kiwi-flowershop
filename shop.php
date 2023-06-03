@@ -1,7 +1,8 @@
 <?php
 global $con;
 include('include/connect.php');
-include('function/common_functions.php')
+include('function/common_functions.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,9 +78,13 @@ include('function/common_functions.php')
 								<li><a href="contact.html">Liên hệ</a></li>
 								<li>
 									<div class="header-icons">
-										<a href="./user_area/user_login.php" class="customer-account">
-											<i class="fas fa-user-alt"></i>
-										</a>
+										<?php
+										if(!isset($_SESSION['username'])){
+											echo "<a href='./user_area/user_login.php'>Welcome Guest</a>";
+										}else{
+											echo "<a href='./user_area/profile.php'>Welcome ".$_SESSION['username']."</a>";
+										}
+										?>
 										<a class="shopping-cart" href="cart.php"><i class="fas
 												fa-shopping-cart"></i><sup>
 												<?php

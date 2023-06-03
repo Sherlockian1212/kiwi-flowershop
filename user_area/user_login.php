@@ -1,6 +1,9 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 global $con;
 include('../include/connect.php');
+include('../function/common_functions.php');
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -65,9 +68,20 @@ if(isset($_POST['user_login'])){
     $result = mysqli_query($con, $select_query);
     $row_count = mysqli_num_rows($result);
     $row_data = mysqli_fetch_assoc($result);
+    $user_ip = getIPAddress();
+    $cart_select = "Select * from `cart_details` where ip_address='$user_ip'";
+    $cart_query = mysqli_query($con, $cart_select);
+    $cart_row_count = mysqli_num_rows($cart_query);
     if($row_count > 0 ){
-        if($user_password == $row_data['user_password'])
+        $_SESSION['username'] = $user_username;
+        if(password_verify($user_password, $row_data['user_password']) and $row_count == 1){
             echo "<script>alert('Đăng nhập thành công')</script>";
+            if ($cart_row_count == 0){
+                echo "<script>window.open('../shop.php', '_self')</script>";
+            }else{
+                echo "<script>window.open('../index.php', '_self')</script>";
+            }
+        }
         else echo "<script>alert('Đăng nhập không thành công')</script>";
     } else "<script>alert('Đăng nhập không thành công')</script>";
 }
