@@ -65,11 +65,11 @@ include('../function/common_functions.php');
                     </button>
                     <button class="border-0 rounded"><a href="index.php?view_categories" class="nav-link text-light bg-info m-0">View Categories</a>
                     </button>
-                    <button class="border-0 rounded"><a href="" class="nav-link text-light bg-info m-0">All Orders</a>
+                    <button class="border-0 rounded"><a href="index.php?list_orders" class="nav-link text-light bg-info m-0">All Orders</a>
                     </button>
-                    <button class="border-0 rounded"><a href="" class="nav-link text-light bg-info m-0">Users Lists</a>
+                    <button class="border-0 rounded"><a href="index.php?list_users" class="nav-link text-light bg-info m-0">Users Lists</a>
                     </button>
-                    <button class="border-0 rounded"><a href="" class="nav-link text-light bg-info m-0">Payments</a>
+                    <button class="border-0 rounded"><a href="index.php?list_payments" class="nav-link text-light bg-info m-0">Payments</a>
                     </button>
                     <button class="border-0 rounded"><a href="" class="nav-link text-light bg-info m-0">Log out</a>
                     </button>
@@ -94,7 +94,31 @@ include('../function/common_functions.php');
                 if(isset($_GET["view_categories"])){
                     include("view_categories.php");
                 }
-            ?>
+                if(isset($_GET['edit_category'])){
+                    include('edit_category.php');
+                }
+                if(isset($_GET['delete_category'])){
+                    include('delete_category.php');
+                }
+                if(isset($_GET['list_orders'])){
+                    include('list_orders.php');
+                }
+                if(isset($_GET['delete_orders'])){
+                    include('delete_orders.php');
+                }
+                if(isset($_GET['list_payments'])){
+                    include('list_payments.php');
+                }
+                if(isset($_GET['delete_payments'])){
+                    include('delete_payments.php');
+                }
+                if(isset($_GET['list_users'])){
+                    include('list_users.php');
+                }
+                if(isset($_GET['delete_users'])){
+                    include('delete_users.php');
+                }
+                ?>
         </div>
     </div>
 </body>

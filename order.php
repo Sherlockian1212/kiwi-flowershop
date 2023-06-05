@@ -1,9 +1,10 @@
 <?php
+global $con;
 include('include/connect.php');
 include('function/common_functions.php');
 
 if (isset($_GET['user_id'])){
-    $user_id=$GET['user_id'];
+    $user_id=$_GET['user_id'];
 
 }
 
