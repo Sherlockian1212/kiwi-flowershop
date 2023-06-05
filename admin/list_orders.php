@@ -36,7 +36,7 @@
             <td>$total_products</td>
             <td>$order_date</td>
             <td>$order_status</td>
-            <td><a href='index.php?delete_orders=<?php echo $order_id?>' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
+            <td><a href='index.php?delete_orders=$order_id' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
         </tr>";
         }
     }

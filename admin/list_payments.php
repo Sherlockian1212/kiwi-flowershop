@@ -31,10 +31,10 @@
             echo "<tr>
             <td>$number</td>
             <td>$invoice_number</td>
-            <td>$amount/td>
-            <td>$payment_mode/td>
+            <td>$amount</td>
+            <td>$payment_mode</td>
             <td>$date</td>
-            <td><a href='index.php?delete_payments=<?php echo $payment_id?>' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
+            <td><a href='index.php?delete_payments=$payment_id' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
         </tr>";
         }
     }
