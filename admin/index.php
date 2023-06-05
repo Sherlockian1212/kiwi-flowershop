@@ -71,7 +71,7 @@ include('../function/common_functions.php');
                     </button>
                     <button class="border-0 rounded"><a href="index.php?list_payments" class="nav-link text-light bg-info m-0">Payments</a>
                     </button>
-                    <button class="border-0 rounded"><a href="" class="nav-link text-light bg-info m-0">Log out</a>
+                    <button class="border-0 rounded"><a href="admin_login.php" class="nav-link text-light bg-info m-0">Log out</a>
                     </button>
                 </div>
             </div>

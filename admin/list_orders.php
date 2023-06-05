@@ -26,7 +26,7 @@
             $amount_due = $row_data['amount_due'];
             $invoice_number = $row_data['invoice_number'];
             $total_products = $row_data['total_products'];
-            $order_date = $row_data['order_date'];
+            $order_date = $row_data['order_dates'];
             $order_status = $row_data['order_status'];
             $number++;
             echo "<tr>
