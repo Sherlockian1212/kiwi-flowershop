@@ -21,6 +21,7 @@ include('../include/connect.php');
         }
     }
 ?>
+
 <h3 class="text-center text-grey p-2">Add Category</h3>
 <form action="" method="post" class="mb-2 mt-2">
     <div class="input-group w-90 mb-2">

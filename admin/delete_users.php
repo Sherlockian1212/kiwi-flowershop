@@ -1,0 +1,12 @@
+<?php
+global $con;
+if(isset($_GET['delete_users'])){
+    $delete_user = $_GET['delete_users'];
+    $delete_query = "Delete from `user_table` where user_id=$delete_user";
+    $result = mysqli_query($con, $delete_query);
+    if($result){
+        echo "<script>alert('User is been DELETED successfully')</script>";
+        echo "<script>window.open('./index.php?list_users', '_self')</script>";
+    }
+}
+?>
