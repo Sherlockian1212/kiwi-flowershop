@@ -240,9 +240,9 @@ function total_cart_price(){
             $total += $product_values * $product_quantity;
         }
     }
+    $totalCartPrice = $total;
     echo $total;
 }
-
 function update_cart()
 {
     global $con;
@@ -308,6 +308,33 @@ function remove_cart_item()
         $result_remove_product = mysqli_query($con, $remove_cart);
         if ($result_remove_product){
             echo "<script>window.open('cart.php','_self')</script>";
+        }
+    }
+}
+
+function get_user_order_details()
+{
+    global $con;
+    $username = $_SESSION['username'];
+    $get_details = "Select * from `user_table` where username='$username'";
+    $result_query = mysqli_query($con, $get_details);
+    while ($row_query=mysqli_fetch_array($result_query)){
+        $userid = $row_query['user_id'];
+        if (!isset($_GET['edit_account'])){
+            if (!isset($_GET['my_orders'])){
+                $get_orders = "Select * from `user_orders` where user_id='$userid' and order_status='pending'";
+                $result_user_orders_query = mysqli_query($con, $get_orders);
+                $row_count = mysqli_num_rows($result_user_orders_query);
+                if ($row_count > 0)
+                {
+                    echo "<h3>You have <span class='text-warning'>$row_count</span> pending orders</h3>";
+                }
+                else
+                {
+                    echo "<h3>No <span class='text-danger'>pending</span> orders</h3>";
+                    echo "<a class='text-info' href='../shop.php'>Explore more</a>";
+                }
+            }
         }
     }
 }

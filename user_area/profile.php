@@ -1,3 +1,9 @@
+<?php
+global $con;
+include('../include/connect.php');
+include('../function/common_functions.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,21 +151,50 @@
 <div class="single-product mt-150 mb-150">
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
-                <div class="single-product-img">
-                    <img src="../assets/img/products/product-img-5.jpg" alt>
+            <?php
+                $username = $_SESSION['username'];
+                $user_image = "Select * from `user_table` where username='$username'";
+                $result_image = mysqli_query($con, $user_image);
+                $row_image = mysqli_fetch_array($result_image);
+                $image = $row_image['user_image'];
+                $user_username = $row_image['username'];
+                $address = $row_image['user_address'];
+                $phone = $row_image['user_mobile'];
+            ?>
+            <?php
+                if(!isset($_GET['my_orders'])){
+                    echo "
+                    <div class='col-md-5'>
+                <div class='single-product-img'>
+                        <img src='$image'alt>
                 </div>
             </div>
+                    ";
+                }
+            ?>
             <div class="col-md-7">
                 <div class="single-product-content">
-                    <h1>Tên khách hàng</h1>
-                    <p class="single-product-pricing"><span>Địa chỉ</span>
-                        Số điện thoại</p>
-                    <div class="single-product-form">
-                        <a href="../cart.php" class="cart-btn"><i
+                    <?php
+                        if (isset($_GET['edit_account'])){
+                            include('edit_account.php');
+                        }
+                        else if(isset($_GET['my_orders'])){
+                            include('user_orders.php');
+                        }
+                        else
+                        {
+                            echo "
+                            <h1>$user_username</h1>
+                            <p class='single-product-pricing'><span>$address</span>$phone</p>
+                        ";
+                            get_user_order_details();
+                    }
+                    ?>
+                    <div class="single-product-form mt-2">
+                        <a href="profile.php?my_orders" class="cart-btn"><i
                                 class="fas fa-shopping-cart"></i>
-                            Xem giỏ hàng</a>
-                        <a href="#" class="cart-btn">
+                            View orders</a>
+                        <a href="profile.php?edit_account" class="cart-btn">
                             Chỉnh sửa thông tin</a>
                         <a href="logout.php" class="cart-btn">
                             Đăng xuất</a>

@@ -1,9 +1,8 @@
 <?php
-error_reporting(E_ERROR | E_PARSE);
 global $con;
 include('../include/connect.php');
 include('../function/common_functions.php');
-session_start();
+@session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">

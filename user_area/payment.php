@@ -1,7 +1,7 @@
 <?php
 global $con;
-include('include/connect.php');
-include('function/common_functions.php')
+include('../include/connect.php');
+include('../function/common_functions.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -18,7 +18,7 @@ include('function/common_functions.php')
 	<title>Kiwi - Flower Shop</title>
 
 	<!-- favicon -->
-	<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
+	<link rel="shortcut icon" type="image/png" href="../assets/img/favicon.png">
 	<!-- google font -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
 		  rel="stylesheet">
@@ -26,21 +26,21 @@ include('function/common_functions.php')
 		href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
 		rel="stylesheet">
 	<!-- fontawesome -->
-	<link rel="stylesheet" href="assets/css/all.min.css">
+	<link rel="stylesheet" href="../assets/css/all.min.css">
 	<!-- bootstrap -->
-	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
 	<!-- owl carousel -->
-	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="../assets/css/owl.carousel.css">
 	<!-- magnific popup -->
-	<link rel="stylesheet" href="assets/css/magnific-popup.css">
+	<link rel="stylesheet" href="../assets/css/magnific-popup.css">
 	<!-- animate css -->
-	<link rel="stylesheet" href="assets/css/animate.css">
+	<link rel="stylesheet" href="../assets/css/animate.css">
 	<!-- mean menu css -->
-	<link rel="stylesheet" href="assets/css/meanmenu.min.css">
+	<link rel="stylesheet" href="../assets/css/meanmenu.min.css">
 	<!-- main style -->
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 	<!-- responsive -->
-	<link rel="stylesheet" href="assets/css/responsive.css">
+	<link rel="stylesheet" href="../assets/css/responsive.css">
 </head>
 <style>
     .payment_img{
@@ -52,9 +52,9 @@ include('function/common_functions.php')
 <body>
     <!--php code to access user id-->
     <?php
-        // $user_ip=getIPAddress();
-        $user_ip="::1";
-        $get_user="Select * from `user_table` where user_ip='$user_ip'";
+        $user_ip=getIPAddress();
+        $user_username = $_SESSION['username'];
+        $get_user="Select * from `user_table` where user_ip='$user_ip' and username='$user_username'";
         $result=mysqli_query($con,$get_user);
         $run_query=mysqli_fetch_array($result);
         $user_id=$run_query['user_id'];

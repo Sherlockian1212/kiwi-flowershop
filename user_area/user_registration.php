@@ -93,7 +93,7 @@ if(isset($_POST['user_register'])){
 	if ($rows_count > 0)
 	{
 		echo "<script>alert('You have items in your cart')</script>";
-		echo "<script>window.open('../payment.php', '_self')</script>";
+		echo "<script>window.open('payment.php', '_self')</script>";
 	}
 	else{
 		echo "<script>window.open('../shop.php', '_self')</script>";
