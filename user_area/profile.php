@@ -81,22 +81,14 @@ session_start();
                                     <li><a href="checkout.php">Đặt hàng</a></li>
                                 </ul>
                             </li>
-                            <li><a href="../about.html">Về chúng tôi</a>
+                            <li><a href="../about.php">Về chúng tôi</a>
                             </li>
-                            <li><a href="../contact.html">Liên hệ</a></li>
+                            <li><a href="../contact.php">Liên hệ</a></li>
                             <li>
                                 <div class="header-icons">
-                                    <a href="../user.html"
-                                       class="customer-account">
-                                        <i class="fas fa-user-alt"></i>
-                                    </a>
                                     <a class="shopping-cart"
                                        href="../cart.php"><i class="fas
 												fa-shopping-cart"></i></a>
-                                    <a
-                                        class="mobile-hide search-bar-icon"
-                                        href="#"><i class="fas
-												fa-search"></i></a>
                                 </div>
                             </li>
                         </ul>
@@ -121,9 +113,8 @@ session_start();
                 <div class="search-bar">
                     <div class="search-bar-tablecell">
                         <h3>Search For:</h3>
-                        <input type="text" placeholder="Keywords">
-                        <button type="submit">Search <i
-                                class="fas fa-search"></i></button>
+                        <input type="search" placeholder="Keywords" name="search_data">
+                        <button name="search_data_product" value="Search" type="submit">Search<i class="fas fa-search"></i></button>
                     </div>
                 </div>
             </div>

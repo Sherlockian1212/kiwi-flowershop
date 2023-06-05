@@ -1,6 +1,6 @@
-global$con; <h3 class="text-center text-success">All Categories</h3>
-<table class="table table-bordered-mt-5">
-    <thead>
+<h3 class="text-center text-grey mt-2">All Categories</h3>
+<table class="table table-bordered mt-2">
+    <thead class="bg-info text-white">
         <tr class="text-center">
             <th>Num</th>
             <th>Category ID</th>
@@ -9,7 +9,7 @@ global$con; <h3 class="text-center text-success">All Categories</h3>
             <th>Delete</th>
         </tr>  
     </thead>
-    <tbody class="bg-secondary text-light">
+    <tbody class="">
         <?php
         $number=0;
         $get_categories="select * from `categories`";
@@ -23,8 +23,8 @@ global$con; <h3 class="text-center text-success">All Categories</h3>
             <td><?php echo $number;?></td>
             <td><?php echo $category_id;?></td>
             <td><?php echo $category_title;?></td>
-            <td><a href='index.php?edit_category=<?php echo $category_id?>' class='text-light'><i class='fa-solid fa-pen-to-square'></i></a></td>
-            <td><a href='index.php?delete_category=<?php echo $category_id?>' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
+            <td><a href='index.php?edit_category=<?php echo $category_id?>' class='text-info'><i class='fa-solid fa-pen-to-square'></i></a></td>
+            <td><a href='index.php?delete_category=<?php echo $category_id?>' class='text-danger'><i class='fa-solid fa-trash'></i></a></td>
         </tr>
     <?php
         }

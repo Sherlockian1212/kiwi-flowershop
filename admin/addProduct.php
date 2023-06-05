@@ -28,6 +28,7 @@ if (isset($_POST['insert-product'])){
         if($result_query)
         {
             echo "<script>alert('Insert product successfully!')</script>";
+            echo "<script>window.open('index.php', '_self')</script>";
         }
     }
 }

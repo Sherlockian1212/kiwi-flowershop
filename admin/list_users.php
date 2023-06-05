@@ -1,6 +1,6 @@
-global$con; <h3 class="text-center text-success">All users</h3>
-<table class = "table table-bordered mt-5">
-    <thead class = "bg-info">
+<h3 class="text-center text-grey mt-2">All users</h3>
+<table class = "table table-bordered mt-2 text-center">
+    <thead class = "bg-info text-light">
     <?php
     $get_payments="SELECT * FROM `user_table`";
     $result=mysqli_query($con, $get_payments);
@@ -18,7 +18,7 @@ global$con; <h3 class="text-center text-success">All users</h3>
             <th>Delete</th>
         </tr>
     </thead>
-    <tbody class='bg-secondary text-light'>";
+    <tbody>";
         $number=0;
         while($row_data = mysqli_fetch_assoc($result)){
             $user_id = $row_data['user_id'];
@@ -33,7 +33,7 @@ global$con; <h3 class="text-center text-success">All users</h3>
             <td>$user_email</td>
             <td>$user_address</td>
             <td>$user_mobile</td>
-            <td><a href='index.php?delete_users=$user_id' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
+            <td><a href='index.php?delete_users=$user_id' class='text-danger'><i class='fa-solid fa-trash'></i></a></td>
         </tr>";
         }
     }

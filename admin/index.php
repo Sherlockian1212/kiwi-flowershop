@@ -57,7 +57,7 @@ include('../function/common_functions.php');
                     <p class="text-center text-info font-weight-bold m-0">Mạnh Tường</p>
                 </div>
                 <div class="button text-center">
-                    <button class="border-0 rounded"><a href="" class="nav-link text-light bg-info m-0">Add Product</a>
+                    <button class="border-0 rounded"><a href="addProduct.php" class="nav-link text-light bg-info m-0">Add Product</a>
                     </button>
                     <button class="border-0 rounded"><a href="index.php?view_products" class="nav-link text-light bg-info m-0">View Products</a>
                     </button>

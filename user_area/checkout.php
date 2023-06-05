@@ -1,7 +1,7 @@
 <?php
-//error_reporting(E_ERROR | E_PARSE);
 global $con;
 include('../include/connect.php');
+include('../function/common_functions.php');
 session_start();
 ?>
 <!DOCTYPE html>
@@ -44,7 +44,14 @@ session_start();
 		include('user_login.php');
 	}
 	else{
-		include('payment.php');
+//		include('payment.php');
+		$user_ip=getIPAddress();
+		$user_username = $_SESSION['username'];
+		$get_user="Select * from `user_table` where user_ip='$user_ip' and username='$user_username'";
+		$result=mysqli_query($con,$get_user);
+		$run_query=mysqli_fetch_array($result);
+		$user_id=$run_query['user_id'];
+		echo "<script>window.open('order.php?user_id=$user_id', '_self')</script>";
 	}
 	?>
 	<!-- jquery -->

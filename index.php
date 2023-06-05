@@ -78,9 +78,9 @@ session_start();
 									<li><a href="user_area/checkout.php">Đặt hàng</a></li>
 								</ul>
 							</li>
-							<li><a href="about.html">Về chúng tôi</a>
+							<li><a href="about.php">Về chúng tôi</a>
 							</li>
-							<li><a href="contact.html">Liên hệ</a></li>
+							<li><a href="contact.php">Liên hệ</a></li>
 							<li>
 								<div class="header-icons">
 									<?php
@@ -165,7 +165,7 @@ session_start();
 						<p class="subtitle">-luôn mang đến cho bạn những bông hoa đẹp nhất-</p>
 						<div class="hero-btns">
 							<a href="shop.php" class="boxed-btn">Sản phẩm</a>
-							<a href="contact.html" class="bordered-btn">Liên hệ</a>
+							<a href="contact.php" class="bordered-btn">Liên hệ</a>
 						</div>
 					</div>
 				</div>

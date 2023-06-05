@@ -2,9 +2,9 @@
 global $con;
 include('../include/connect.php');
 ?>
-<h3 class="text-center text-success">All products</h3>
-<table class="table table-bordered-mt-5">
-    <thead>
+<h3 class="text-center text-grey mt-2">All products</h3>
+<table class="table table-bordered mt-2">
+    <thead class="bg-info text-light">
         <tr class="text-center">
             <th>Num</th>
             <th>Product ID</th>
@@ -17,7 +17,7 @@ include('../include/connect.php');
             <th>Delete</th>
         </tr>  
     </thead>
-    <tbody class="bg-secondary text-light">
+    <tbody class="">
         <?php
         $number=0;
         $get_products="select * from `products`";
@@ -44,8 +44,8 @@ include('../include/connect.php');
             ?>
             </td>
             <td><?php echo $status;?></td>
-            <td><a href='index.php?edit_products=<?php echo $product_id;?>' class='text-light'><i class='fa-solid fa-pen-to-square'></i></a></td>
-            <td><a href='index.php?delete_products=<?php echo $product_id;?>' class='text-light'><i class='fa-solid fa-trash'></i></td>
+            <td><a href='index.php?edit_products=<?php echo $product_id;?>' class='text-info'><i class='fa-solid fa-pen-to-square'></i></a></td>
+            <td><a href='index.php?delete_products=<?php echo $product_id;?>' class='text-danger'><i class='fa-solid fa-trash'></i></td>
         </tr>
     <?php
         }

@@ -73,9 +73,9 @@ session_start();
 										<li><a href="user_area/checkout.php">Đặt hàng</a></li>
 									</ul>
 								</li>
-								<li><a href="about.html">Về chúng tôi</a>
+								<li><a href="about.php">Về chúng tôi</a>
 								</li>
-								<li><a href="contact.html">Liên hệ</a></li>
+								<li><a href="contact.php">Liên hệ</a></li>
 								<li>
 									<div class="header-icons">
 										<?php

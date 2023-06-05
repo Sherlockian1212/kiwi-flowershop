@@ -1,6 +1,6 @@
-global$con; <h3 class="text-center text-success">All orders</h3>
-<table class = "table table-bordered mt-5">
-    <thead class = "bg-info">
+<h3 class="text-center text-grey mt-2">All orders</h3>
+<table class = "table table-bordered mt-2 text-center">
+    <thead class = "bg-info text-light">
     <?php
     $get_orders="SELECT * FROM `user_orders`";
     $result=mysqli_query($con, $get_orders);
@@ -15,7 +15,7 @@ global$con; <h3 class="text-center text-success">All orders</h3>
             <th>Delete</th>
         </tr>
     </thead>
-    <tbody class='bg-secondary text-light'>";
+    <tbody class=''>";
     if($row_count == 0)
         echo "<h2 class='bg-danger text-center mt-5'>No orders yet</h2>";
     else{
@@ -26,7 +26,7 @@ global$con; <h3 class="text-center text-success">All orders</h3>
             $amount_due = $row_data['amount_due'];
             $invoice_number = $row_data['invoice_number'];
             $total_products = $row_data['total_products'];
-            $order_date = $row_data['order_dates'];
+            $order_date = $row_data['order_date'];
             $order_status = $row_data['order_status'];
             $number++;
             echo "<tr>
@@ -36,7 +36,7 @@ global$con; <h3 class="text-center text-success">All orders</h3>
             <td>$total_products</td>
             <td>$order_date</td>
             <td>$order_status</td>
-            <td><a href='index.php?delete_orders=$order_id' class='text-light'><i class='fa-solid fa-trash'></i></a></td>
+            <td><a href='index.php?delete_orders=$order_id' class='text-danger'><i class='fa-solid fa-trash'></i></a></td>
         </tr>";
         }
     }
