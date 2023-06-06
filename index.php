@@ -266,42 +266,27 @@ session_start();
 		</div>
 
 		<div class="row">
-			<div class="col-lg-4 col-md-6 text-center">
-				<div class="single-product-item">
-					<div class="product-image">
-						<a href="single-product.php"><img
-								src="assets/img/products/tulip_hong.jpg" alt=""></a>
+            <?php
+                $select_new_product = "SELECT product_title, product_image FROM `products` ORDER BY RAND() LIMIT 3";
+                $result = mysqli_query($con, $select_new_product);
+
+                while($row_data = mysqli_fetch_assoc($result)){
+                    $title = $row_data['product_title'];
+                    $image = $row_data['product_image'];
+                    echo "<div class='col-lg-4 col-md-6 text-center'>
+				<div class='single-product-item'>
+					<div class='product-image'>
+						<a href='single-product.php'><img
+								src='$image' alt=''></a>
 					</div>
-					<h3>Tulip hồng</h3>
-					<p class="product-price"> 70$ </p>
-					<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm
+					<h3>$title</h3>
+					<p class='product-price'> 70$ </p>
+					<a href='cart.php' class='cart-btn'><i class='fas fa-shopping-cart'></i>Thêm
 						vào giỏ hàng</a>
 				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 text-center">
-				<div class="single-product-item">
-					<div class="product-image">
-						<a href="single-product.php"><img
-								src="assets/img/products/hoa_hong_trang.jpg" alt=""></a>
-					</div>
-					<h3>Lan hồng</h3>
-					<p class="product-price"> 70$ </p>
-					<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm
-						vào giỏ hàng</a>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-				<div class="single-product-item">
-					<div class="product-image">
-						<a href="single-product.php"><img
-								src="assets/img/products/hoa_hong_trang.jpg" alt=""></a>
-					</div>
-					<h3>Hoa hồng trắng</h3>
-					<p class="product-price"> 35$ </p>
-					<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Thêm
-						vào giỏ hàng</a>
-				</div>
-			</div>
+			</div>";
+                }
+            ?>
 		</div>
 	</div>
 </div>
