@@ -11,7 +11,7 @@ function getProducts()
         $product_keywords = $row['product_keywords'];
         $category_id = $row['category_id'];
         $product_image = $row['product_image'];
-        $product_price = $row['product_price'];
+        $product_price = number_format($row['product_price']);
         $date = $row['date'];
         $status = $row['status'];
         echo "
@@ -21,7 +21,7 @@ function getProducts()
                                 <a href='single-product.php?product_id=$product_id'><img src='./admin/product_images/$product_image' alt=''></a>
                             </div>
                         <h3>$product_title</h3>
-                        <p class='product-price'><span>Per Kg</span> $product_price VNĐ </p>
+                        <p class='product-price'> $product_price VNĐ </p>
                         <a href='shop.php?add_to_cart=$product_id' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>
                         </div>
                     </div>";
@@ -59,7 +59,7 @@ function searchProduct()
             $product_keywords = $row['product_keywords'];
             $category_id = $row['category_id'];
             $product_image = $row['product_image'];
-            $product_price = $row['product_price'];
+            $product_price = number_format($row['product_price']);
             $date = $row['date'];
             $status = $row['status'];
             echo "
@@ -69,7 +69,7 @@ function searchProduct()
 									<a href='single-product.php?product_id=$product_id'><img src='./admin/product_images/$product_image' alt=''></a>
 								</div>
 							<h3>$product_title</h3>
-							<p class='product-price'><span>Per Kg</span> $product_price VNĐ </p>
+							<p class='product-price'>$product_price VNĐ </p>
 							<a href='shop.php?add_to_cart=$product_id' class='cart-btn'><i class='fas fa-shopping-cart'></i> Add to Cart</a>
 							</div>
 						</div>";
@@ -92,7 +92,7 @@ function viewDetails()
                 $product_keywords = $row['product_keywords'];
                 $category_id = $row['category_id'];
                 $product_image = $row['product_image'];
-                $product_price = $row['product_price'];
+                $product_price = number_format($row['product_price']);
                 $date = $row['date'];
                 $status = $row['status'];
                 echo "
@@ -104,7 +104,7 @@ function viewDetails()
 					<div class='col-md-7'>
 						<div class='single-product-content'>
 							<h3>$product_title</h3>
-							<p class='single-product-pricing'><span>Per Kg</span>$product_price VNĐ</p>
+							<p class='single-product-pricing'>$product_price VNĐ</p>
 							<p>$product_description</p>
 							<div class='single-product-form'>
 								<form action='index.php''>
