@@ -272,12 +272,12 @@ function getCartItemInfo()
         echo "
         <tr class='table-head-row'>
 			<th class='product-remove'></th>
-			<th class='product-image'>Hình ảnh</th>
-			<th class='product-name'>Tên</th>
-			<th class='product-price'>Đơn giá</th>
-			<th class='product-quantity'>Số lượng</th>
-			<th class='product-total'>Thành tiền</th>
-			<th class='product-total'>Thao tác</th>
+			<th class='product-image'>Image</th>
+			<th class='product-name'>Name</th>
+			<th class='product-price'>Price</th>
+			<th class='product-quantity'>Quantity</th>
+			<th class='product-total'>Total</th>
+			<th class='product-total'>Operation</th>
 			</tr>
         ";
         while ($row = mysqli_fetch_array($result)) {

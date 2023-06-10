@@ -185,7 +185,7 @@ session_start();
 							</thead>
 							<tbody>
 								<tr class="total-data">
-									<td><strong>Giá trị đơn hàng: </strong></td>
+									<td><strong>Order value: </strong></td>
 									<td><?php
 										total_cart_price();
 										?>
@@ -193,11 +193,11 @@ session_start();
 									</td>
 								</tr>
 								<tr class="total-data">
-									<td><strong>Phí vận chuyển: </strong></td>
-									<td>$45</td>
+									<td><strong>Transport fee:</strong></td>
+									<td>45000 VNĐ</td>
 								</tr>
 								<tr class="total-data">
-									<td><strong>Tổng cộng: </strong></td>
+									<td><strong>Total: </strong></td>
 									<td>
 										<?php
 										total_cart_price();
@@ -208,7 +208,7 @@ session_start();
 							</tbody>
 						</table>
 						<div class="cart-buttons">
-							<a href="user_area/checkout.php" class="boxed-btn black">Đặt hàng</a>
+							<a href="user_area/checkout.php" class="boxed-btn black">Order</a>
 						</div>
 					</div>
 
