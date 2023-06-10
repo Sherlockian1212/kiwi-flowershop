@@ -6,6 +6,7 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,31 +39,34 @@ session_start();
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
 	<style>
-		.btn-rounded{
+		.btn-rounded {
 			border: none;
 			border-radius: 5px;
 			padding: 10px;
 		}
+
 		td {
 			max-width: 100px;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
 		}
-		.cart-table-wrap tbody tr td{
+
+		.cart-table-wrap tbody tr td {
 			padding: 20px 5px;
 		}
 	</style>
 </head>
+
 <body>
 
 	<!--PreLoader-->
-    <div class="loader">
-        <div class="loader-inner">
-            <div class="circle"></div>
-        </div>
-    </div>
-    <!--PreLoader Ends-->
+	<div class="loader">
+		<div class="loader-inner">
+			<div class="circle"></div>
+		</div>
+	</div>
+	<!--PreLoader Ends-->
 
 	<!-- header -->
 	<div class="top-header-area" id="sticker">
@@ -81,25 +85,20 @@ session_start();
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="index.php">Trang chủ</a>
+								<li><a href="index.php">Home</a>
 								</li>
-								<li><a href="shop.php">Sản phẩm</a>
-									<ul class="sub-menu">
-										<li><a href="shop.php">Tất cả sản phẩm</a></li>
-										<li><a href="cart.html">Giỏ hàng</a></li>
-										<li><a href="user_area/checkout.php">Đặt hàng</a></li>
-									</ul>
+								<li class="current-list-item"><a href="shop.php">Product</a>
 								</li>
-								<li><a href="about.php">Về chúng tôi</a>
+								<li><a href="about.php">About us</a>
 								</li>
-								<li><a href="contact.php">Liên hệ</a></li>
+								<li><a href="contact.php">contact</a></li>
 								<li>
 									<div class="header-icons">
 										<?php
-										if(!isset($_SESSION['username'])){
+										if (!isset($_SESSION['username'])) {
 											echo "<a href='./user_area/user_login.php'>Welcome Guest</a>";
-										}else{
-											echo "<a href='./user_area/profile.php'>Welcome ".$_SESSION['username']."</a>";
+										} else {
+											echo "<a href='./user_area/profile.php'>Welcome " . $_SESSION['username'] . "</a>";
 										}
 										?>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas
@@ -125,13 +124,13 @@ session_start();
 			<div class="row">
 				<div class="col-lg-12">
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<form class="search-bar" action="search_product.php" method="get">
+					<div class="search-bar">
 						<div class="search-bar-tablecell">
-							<h3>Search For:</h3>
-							<input type="search" placeholder="Keywords" name="search_data">
-							<button name="search_data_product" value="Search" type="submit">Search<i class="fas fa-search"></i></button>
+							<h3>What do you want to search?</h3>
+							<input type="text" placeholder="Key">
+							<button type="submit">Search<i class="fas fa-search"></i></button>
 						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -145,8 +144,8 @@ session_start();
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2 text-center">
 					<div class="breadcrumb-text">
-						<p>Mang đến sự hài lòng cho khách hàng</p>
-						<h1>Giỏ hàng</h1>
+						<p>Bring satisfaction to customers</p>
+						<h1>Cart</h1>
 					</div>
 				</div>
 			</div>
@@ -162,21 +161,13 @@ session_start();
 					<div class="cart-table-wrap">
 						<table class="cart-table">
 							<thead class="cart-table-head">
-								<tr class="table-head-row">
-									<th class="product-remove"></th>
-									<th class="product-image">Hình ảnh</th>
-									<th class="product-name">Tên</th>
-									<th class="product-price">Đơn giá</th>
-									<th class="product-quantity">Số lượng</th>
-									<th class="product-total">Thành tiền</th>
-									<th class="product-total">Thao tác</th>
-								</tr>
+								
 							</thead>
 							<tbody>
 								<?php
-									remove_cart_item();
-									update_cart();
-									getCartItemInfo();
+								remove_cart_item();
+								update_cart();
+								getCartItemInfo();
 								?>
 							</tbody>
 						</table>
@@ -209,7 +200,7 @@ session_start();
 									<td><strong>Tổng cộng: </strong></td>
 									<td>
 										<?php
-											total_cart_price();
+										total_cart_price();
 										?>
 										VNĐ
 									</td>
@@ -221,20 +212,21 @@ session_start();
 						</div>
 					</div>
 
-<!--					<div class="coupon-section">-->
-<!--						<h3>Áp dụng khuyến mãi</h3>-->
-<!--						<div class="coupon-form-wrap">-->
-<!--							<form action="index.php">-->
-<!--								<p><input type="text" placeholder="Mã giảm giá"></p>-->
-<!--								<p><input type="submit" value="Kiểm tra"></p>-->
-<!--							</form>-->
-<!--						</div>-->
-<!--					</div>-->
+					<!--					<div class="coupon-section">-->
+					<!--						<h3>Áp dụng khuyến mãi</h3>-->
+					<!--						<div class="coupon-form-wrap">-->
+					<!--							<form action="index.php">-->
+					<!--								<p><input type="text" placeholder="Mã giảm giá"></p>-->
+					<!--								<p><input type="submit" value="Kiểm tra"></p>-->
+					<!--							</form>-->
+					<!--						</div>-->
+					<!--					</div>-->
 				</div>
 			</form>
 		</div>
 	</div>
 	<!-- end cart -->
+
 	<!-- footer -->
 	<div class="footer-area">
 		<div class="container">
@@ -242,26 +234,26 @@ session_start();
 				<div class="col-lg-4 col-md-6">
 					<div class="footer-box about-widget">
 						<h2 class="widget-title">Kiwi</h2>
-						<p>Kiwi luôn dành cho bạn những bông hoa đẹp nhất</p>
+						<p>Kiwi always gives you the most beautiful flowers</p>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="footer-box get-in-touch">
-						<h2 class="widget-title">Liên hệ</h2>
+						<h2 class="widget-title">Contact</h2>
 						<ul>
-							<li>Địa chỉ: 280 An Dương Vương, P.4, Q.5, TPHCM</li>
+							<li>Address: 280 An Duong Vuong, Ward 4, District 5, HCMC</li>
 							<li>Email: kiwishop@gmail.com</li>
-							<li>+00 111 222 3333</li>
+							<li>Hotline: 1900100C0</li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="footer-box pages">
-						<h2 class="widget-title">Hỗ trợ khách hàng</h2>
+						<h2 class="widget-title">Customer support</h2>
 						<ul>
-							<li>Câu hỏi thường gặp</li>
-							<li>Hướng dẫn đặt hàng</li>
-							<li>Hướng dẫn thanh toán</li>
+							<li>Frequently asked questions</li>
+							<li>Ordering guide</li>
+							<li>Payment Guide</li>
 						</ul>
 					</div>
 				</div>
@@ -275,8 +267,8 @@ session_start();
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-12">
-					<p>Copyrights &copy; 2019 - <a href="https://imransdesign.com/">Imran Hossain</a>,  All Rights Reserved.<br>
-						Distributed By - <a href="https://themewagon.com/">Themewagon</a>
+					<p>Copyrights &copy; 2023 - <a href="#">Kiwi Group</a>, All Rights
+						Reserved.<br>
 					</p>
 				</div>
 				<div class="col-lg-6 text-right col-md-12">
@@ -294,6 +286,7 @@ session_start();
 		</div>
 	</div>
 	<!-- end copyright -->
+
 
 	<!-- jquery -->
 	<script src="assets/js/jquery-1.11.3.min.js"></script>
@@ -317,4 +310,5 @@ session_start();
 	<script src="assets/js/main.js"></script>
 
 </body>
+
 </html>

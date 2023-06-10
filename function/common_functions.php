@@ -265,9 +265,21 @@ function getCartItemInfo()
     $result_count = mysqli_num_rows($result);
     if (!$result_count) {
         echo "
+
                 <img style='width: 100%; padding: 10px' src='https://th.bing.com/th/id/R.afa6a28d0ee0b5e7d55b7a5aecdfedec?rik=eOl3Z%2bU0XvmYlw&riu=http%3a%2f%2fiticsystem.com%2fimg%2fempty-cart.png&ehk=0omil1zRH7T3Pb5iTzvueamUQLSSb55vgY7dLFF8Bl8%3d&risl=&pid=ImgRaw&r=0'>
             ";
     } else {
+        echo "
+        <tr class='table-head-row'>
+			<th class='product-remove'></th>
+			<th class='product-image'>Hình ảnh</th>
+			<th class='product-name'>Tên</th>
+			<th class='product-price'>Đơn giá</th>
+			<th class='product-quantity'>Số lượng</th>
+			<th class='product-total'>Thành tiền</th>
+			<th class='product-total'>Thao tác</th>
+			</tr>
+        ";
         while ($row = mysqli_fetch_array($result)) {
             $product_id = $row['product_id'];
             $product_quantity = $row['quantity'];
