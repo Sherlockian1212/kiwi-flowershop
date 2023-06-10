@@ -107,9 +107,6 @@ function viewDetails()
 							<p class='single-product-pricing'><span>Per Bouquet</span>$product_price VNĐ</p>
 							<p>$product_description</p>
 							<div class='single-product-form'>
-								<form action='index.php''>
-									<input type='number' placeholder='0'>
-								</form>
 								<a href='shop.php?add_to_cart=$product_id' class='cart-btn'><i class='fas fa-shopping-cart'></i>
 									Add to cart</a>
 							</div>
@@ -212,29 +209,29 @@ function cart_item()
         $select_query = "SELECT * FROM `cart_details` WHERE ip_address = '$get_ip_address'";
         $result_select = mysqli_query($con, $select_query);
         $number = mysqli_num_rows($result_select);
-    }
-    else {
-            global $con;
-            $get_ip_address = getIPAddress();
-            $select_query = "SELECT * FROM `cart_details` WHERE ip_address = '$get_ip_address'";
-            $result_select = mysqli_query($con, $select_query);
-            $number = mysqli_num_rows($result_select);
+    } else {
+        global $con;
+        $get_ip_address = getIPAddress();
+        $select_query = "SELECT * FROM `cart_details` WHERE ip_address = '$get_ip_address'";
+        $result_select = mysqli_query($con, $select_query);
+        $number = mysqli_num_rows($result_select);
     }
     echo $number;
 }
 
-function total_cart_price(){
+function total_cart_price()
+{
     global $con;
     $get_ip_address = getIPAddress();
     $total = 0;
     $cart_query = "SELECT * FROM `cart_details` WHERE ip_address = '$get_ip_address'";
     $result = mysqli_query($con, $cart_query);
-    while ($row = mysqli_fetch_array($result)){
+    while ($row = mysqli_fetch_array($result)) {
         $product_id = $row['product_id'];
         $product_quantity = $row['quantity'];
         $select_products = "Select * from `products` where product_id=$product_id";
         $result_products = mysqli_query($con, $select_products);
-        while($row_product_price=mysqli_fetch_array($result_products)){
+        while ($row_product_price = mysqli_fetch_array($result_products)) {
             $product_price = array($row_product_price['product_price']);
             $product_values = array_sum($product_price);
             $total += $product_values * $product_quantity;
@@ -266,19 +263,17 @@ function getCartItemInfo()
     $cart_query = "SELECT * FROM `cart_details` WHERE ip_address = '$get_ip_address'";
     $result = mysqli_query($con, $cart_query);
     $result_count = mysqli_num_rows($result);
-    if(!$result_count){
+    if (!$result_count) {
         echo "
                 <img style='width: 100%; padding: 10px' src='https://th.bing.com/th/id/R.afa6a28d0ee0b5e7d55b7a5aecdfedec?rik=eOl3Z%2bU0XvmYlw&riu=http%3a%2f%2fiticsystem.com%2fimg%2fempty-cart.png&ehk=0omil1zRH7T3Pb5iTzvueamUQLSSb55vgY7dLFF8Bl8%3d&risl=&pid=ImgRaw&r=0'>
             ";
-    }
-    else
-    {
-        while ($row = mysqli_fetch_array($result)){
+    } else {
+        while ($row = mysqli_fetch_array($result)) {
             $product_id = $row['product_id'];
             $product_quantity = $row['quantity'];
             $select_products = "Select * from `products` where product_id=$product_id";
             $result_products = mysqli_query($con, $select_products);
-            while($row_product_price=mysqli_fetch_array($result_products)){
+            while ($row_product_price = mysqli_fetch_array($result_products)) {
                 $product_price = array($row_product_price['product_price']);
                 $product_table = $row_product_price['product_price'];
                 $product_title = $row_product_price['product_title'];
@@ -302,11 +297,11 @@ function remove_cart_item()
 {
     global $con;
     $get_ip_address = getIPAddress();
-    if(isset($_GET['remove_id'])){
+    if (isset($_GET['remove_id'])) {
         $product_id = $_GET['remove_id'];
         $remove_cart = "DELETE from `cart_details` WHERE ip_address = '$get_ip_address' AND product_id = $product_id";
         $result_remove_product = mysqli_query($con, $remove_cart);
-        if ($result_remove_product){
+        if ($result_remove_product) {
             echo "<script>window.open('cart.php','_self')</script>";
         }
     }
@@ -318,19 +313,16 @@ function get_user_order_details()
     $username = $_SESSION['username'];
     $get_details = "Select * from `user_table` where username='$username'";
     $result_query = mysqli_query($con, $get_details);
-    while ($row_query=mysqli_fetch_array($result_query)){
+    while ($row_query = mysqli_fetch_array($result_query)) {
         $userid = $row_query['user_id'];
-        if (!isset($_GET['edit_account'])){
-            if (!isset($_GET['my_orders'])){
+        if (!isset($_GET['edit_account'])) {
+            if (!isset($_GET['my_orders'])) {
                 $get_orders = "Select * from `user_orders` where user_id='$userid' and order_status='pending'";
                 $result_user_orders_query = mysqli_query($con, $get_orders);
                 $row_count = mysqli_num_rows($result_user_orders_query);
-                if ($row_count > 0)
-                {
+                if ($row_count > 0) {
                     echo "<h3>You have <span class='text-warning'>$row_count</span> pending orders</h3>";
-                }
-                else
-                {
+                } else {
                     echo "<h3>No <span class='text-danger'>pending</span> orders</h3>";
                     echo "<a class='text-info' href='../shop.php'>Explore more</a>";
                 }
