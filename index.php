@@ -69,18 +69,13 @@ session_start();
 					<!-- menu start -->
 					<nav class="main-menu">
 						<ul>
-							<li class="current-list-item"><a href="index.html">Trang chủ</a>
+							<li class="current-list-item"><a href="index.html">Home</a>
 							</li>
-							<li><a href="shop.php">Sản phẩm</a>
-								<ul class="sub-menu">
-									<li><a href="shop.php">Tất cả sản phẩm</a></li>
-									<li><a href="cart.php">Giỏ hàng</a></li>
-									<li><a href="user_area/checkout.php">Đặt hàng</a></li>
-								</ul>
+							<li><a href="shop.php">Product</a>
 							</li>
-							<li><a href="about.php">Về chúng tôi</a>
+							<li><a href="about.php">About us</a>
 							</li>
-							<li><a href="contact.php">Liên hệ</a></li>
+							<li><a href="contact.php">Contact</a></li>
 							<li>
 								<div class="header-icons">
 									<?php
@@ -143,9 +138,9 @@ session_start();
 				<span class="close-btn"><i class="fas fa-window-close"></i></span>
 				<div class="search-bar">
 					<div class="search-bar-tablecell">
-						<h3>Bạn muốn tìm gì?</h3>
-						<input type="text" placeholder="Từ khóa">
-						<button type="submit">Tìm kiếm<i class="fas fa-search"></i></button>
+						<h3>What do you want to search?</h3>
+						<input type="text" placeholder="Key">
+						<button type="submit">Search<i class="fas fa-search"></i></button>
 					</div>
 				</div>
 			</div>
@@ -161,11 +156,11 @@ session_start();
 			<div class="col-lg-9 offset-lg-2 text-center">
 				<div class="hero-text">
 					<div class="hero-text-tablecell">
-						<h1>Hoa tươi Kiwi</h1>
-						<p class="subtitle">-luôn mang đến cho bạn những bông hoa đẹp nhất-</p>
+						<h1>Kiwi - Flower shop</h1>
+						<p class="subtitle">-ALWAYS BRING YOU THE BEST FLOWERS-</p>
 						<div class="hero-btns">
-							<a href="shop.php" class="boxed-btn">Sản phẩm</a>
-							<a href="contact.php" class="bordered-btn">Liên hệ</a>
+							<a href="shop.php" class="boxed-btn">Product</a>
+							<a href="contact.php" class="bordered-btn">Contact</a>
 						</div>
 					</div>
 				</div>
@@ -186,8 +181,8 @@ session_start();
 						<i class="fas fa-shipping-fast"></i>
 					</div>
 					<div class="content">
-						<h3>Vận chuyển miễn phí</h3>
-						<p>Miễn phí vận chuyển các đơn hàng trong nội thành TPHCM</p>
+						<h3>Free shipping</h3>
+						<p>Free shipping for orders within Ho Chi Minh City</p>
 					</div>
 				</div>
 			</div>
@@ -197,8 +192,8 @@ session_start();
 						<i class="fas fa-phone-volume"></i>
 					</div>
 					<div class="content">
-						<h3>Phục vụ 24/24</h3>
-						<p>Luôn sẵn sàng phục vụ những lúc bạn cần</p>
+						<h3>Service 24/24</h3>
+						<p>Always ready to serve you when you need it</p>
 					</div>
 				</div>
 			</div>
@@ -208,8 +203,8 @@ session_start();
 						<i class="fas fa-sync"></i>
 					</div>
 					<div class="content">
-						<h3>Đổi trả miễn phí</h3>
-						<p>Hàng bị lỗi hoặc hoa bị héo dập nát sẽ được đổi trả miễn phí</p>
+						<h3>Free returns</h3>
+						<p>Defective goods or damaged flowers will be returned for free</p>
 					</div>
 				</div>
 			</div>
@@ -222,8 +217,8 @@ session_start();
 						<i class="fas fa-clock"></i>
 					</div>
 					<div class="content">
-						<h3>Giao hàng siêu tốc</h3>
-						<p>Chỉ trong 1h tại nội thành TPHCM</p>
+						<h3>Super fast delivery</h3>
+						<p>In just 1 hour in the inner city of Ho Chi Minh City</p>
 					</div>
 				</div>
 			</div>
@@ -233,8 +228,8 @@ session_start();
 						<i class="fas fa-dollar-sign"></i>
 					</div>
 					<div class="content">
-						<h3>Mua hàng siêu tiết kiệm</h3>
-						<p>Rẻ hơn từ 10% - 30% so với giá thị trường</p>
+						<h3>Buy super saver</h3>
+						<p>10% - 30% cheaper than market price</p>
 					</div>
 				</div>
 			</div>
@@ -244,8 +239,8 @@ session_start();
 						<i class="fas fa-dollar-sign"></i>
 					</div>
 					<div class="content">
-						<h3>Cam kết hoa tươi lâu</h3>
-						<p>Bảo đảm hoa tươi lâu hơn 3 ngày</p>
+						<h3>Committed to long-lasting flowers</h3>
+						<p>Guaranteed flowers stay fresh longer than 3 days</p>
 					</div>
 				</div>
 			</div>
@@ -260,33 +255,45 @@ session_start();
 		<div class="row">
 			<div class="col-lg-8 offset-lg-2 text-center">
 				<div class="section-title">
-					<h3><span class="orange-text">Sản phẩm mới</span></h3>
+					<h3><span class="orange-text">New product</span></h3>
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
-            <?php
-                $select_new_product = "SELECT product_title, product_image FROM `products` ORDER BY RAND() LIMIT 3";
-                $result = mysqli_query($con, $select_new_product);
-
-                while($row_data = mysqli_fetch_assoc($result)){
-                    $title = $row_data['product_title'];
-                    $image = $row_data['product_image'];
-                    echo "<div class='col-lg-4 col-md-6 text-center'>
-				<div class='single-product-item'>
-					<div class='product-image'>
-						<a href='single-product.php'><img
-								src='$image' alt=''></a>
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="single-product.php"><img
+								src="assets/img/products/tulip_hong.jpg" alt=""></a>
 					</div>
-					<h3>$title</h3>
-					<p class='product-price'> 70$ </p>
-					<a href='cart.php' class='cart-btn'><i class='fas fa-shopping-cart'></i>Thêm
-						vào giỏ hàng</a>
+					<h3>Pink Tulips</h3>
+					<p class="product-price"> 70$ </p>
+					<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Add to cart</a>
 				</div>
-			</div>";
-                }
-            ?>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="single-product.php"><img
+								src="assets/img/products/hoa_hong_trang.jpg" alt=""></a>
+					</div>
+					<h3>Pink orchids</h3>
+					<p class="product-price"> 70$ </p>
+					<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Add to card</a>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="single-product.php"><img
+								src="assets/img/products/hoa_hong_trang.jpg" alt=""></a>
+					</div>
+					<h3>White Rose</h3>
+					<p class="product-price"> 35$ </p>
+					<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Add to card</a>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -301,7 +308,7 @@ session_start();
 				<div class="image">
 					<div class="price-box">
 						<div class="inner-price">
-							<strong>GIẢM GIÁ 30% CHO ĐƠN TRÊN 500K</strong>
+							<strong>30% OFF ORDER OVER 500$</strong>
 						</div>
 					</div>
 					<img src="assets/img/phong_lan_1.jpg" alt="">
@@ -310,10 +317,10 @@ session_start();
 			<!--Content Column-->
 			<div class="content-column col-lg-6">
 				<h3><span class="orange-text">Best</span> seller</h3>
-				<div class="text">Với những đoá hoa to và màu sắc tinh tế, từ trắng tinh
-					khôi đến đỏ rực rỡ, dễ chăm sóc và có thể sống lâu dài.
-					Sự kết hợp giữa vẻ đẹp và tính thực tiễn, phong lan là sự lựa chọn hoàn
-					hảo để trang trí không gian sống và làm quà tặng cho người thân yêu
+				<div class="text">With big flowers and delicate colors, from pure white
+beautiful to bright red, easy to care for and can live a long time.
+A combination of beauty and practicality, orchid is the perfect choice
+Perfect to decorate your living space and as a gift for your loved ones
 				</div>
 				<!--Countdown Timer-->
 				<div class="time-counter"><div class="time-countdown clearfix"
@@ -322,31 +329,12 @@ session_start();
 							class="counter-column"><div class="inner"><span class="count">00</span>Hours</div></div>
 						<div class="counter-column"><div class="inner"><span class="count">00</span>Mins</div></div>
 						<div class="counter-column"><div class="inner"><span class="count">00</span>Secs</div></div></div></div>
-				<a href="cart.php" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i>Thêm
-					vào giỏ hàng</a>
+				<a href="cart.php" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i>Add to cart</a>
 			</div>
 		</div>
 	</div>
 </section>
 <!-- end cart banner section -->
-
-
-<!-- advertisement section -->
-<div class="abt-section mb-150">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 col-md-12">
-				<div class="abt-text">
-					<h2>Chúng tôi <span class="orange-text">có</span></h2>
-					<p>Những sản phẩm với tiêu chí chất lượng hàng đầu, luôn mang đến cho bạn
-						những bông hoa đẹp nhất</p>
-					<a href="shop.php" class="boxed-btn mt-4">Xem thêm</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- end advertisement section -->
 
 <!-- testimonail-section -->
 <div class="testimonail-section mt-150 mb-150">
@@ -423,14 +411,14 @@ session_start();
 			<div class="col-lg-4 col-md-6">
 				<div class="footer-box about-widget">
 					<h2 class="widget-title">Kiwi</h2>
-					<p>Kiwi luôn dành cho bạn những bông hoa đẹp nhất</p>
+					<p>Kiwi always gives you the most beautiful flowers</p>
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="footer-box get-in-touch">
-					<h2 class="widget-title">Liên hệ</h2>
+					<h2 class="widget-title">Contact</h2>
 					<ul>
-						<li>Địa chỉ: 280 An Dương Vương, P.4, Q.5, TPHCM</li>
+						<li>Address: 280 An Duong Vuong, Ward 4, District 5, HCMC</li>
 						<li>Email: kiwishop@gmail.com</li>
 						<li>Hotline: 1900100C0</li>
 					</ul>
@@ -438,11 +426,11 @@ session_start();
 			</div>
 			<div class="col-lg-4 col-md-6">
 				<div class="footer-box pages">
-					<h2 class="widget-title">Hỗ trợ khách hàng</h2>
+					<h2 class="widget-title">Customer support</h2>
 					<ul>
-						<li>Câu hỏi thường gặp</li>
-						<li>Hướng dẫn đặt hàng</li>
-						<li>Hướng dẫn thanh toán</li>
+						<li>Frequently asked questions</li>
+						<li>Ordering guide</li>
+						<li>Payment Guide</li>
 					</ul>
 				</div>
 			</div>
