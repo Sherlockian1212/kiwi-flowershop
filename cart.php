@@ -91,7 +91,7 @@ session_start();
 								</li>
 								<li><a href="about.php">About us</a>
 								</li>
-								<li><a href="contact.php">contact</a></li>
+								<li><a href="contact.php">Contact</a></li>
 								<li>
 									<div class="header-icons">
 										<?php

@@ -20,7 +20,7 @@ session_start();
 <body>
 
 	<div class="login">
-		<div class="title">KIWI SHOP</div>
+		<div class="title">Kiwi - Flower Shop</div>
 		<form action="" method="post" enctype="multipart/form-data">
 		<div class="group">
 			<input type="text" id="user_name" placeholder="Enter username" required="required" name="user_username">
@@ -47,7 +47,7 @@ session_start();
 		<div class="signIn">
 			<!--<button value="Register" name="user_register"><a href="login.php" name="user_register">Đăng kí</a></button>-->
 			<input type="submit" class="submit" value="Register" name="user_register">
-			<p style="margin: 0; padding-top: 10px">Bạn đã có tài khoản?<a href="user_login.php">Login</a></p>
+			<p style="margin: 0; padding-top: 10px">Do you already have an account?<a href="user_login.php">Login</a></p>
 		</div>
 		</form>
 	</div>
@@ -73,17 +73,17 @@ if(isset($_POST['user_register'])){
 	$result = mysqli_query($con, $select_query);
 	$rows_count = mysqli_num_rows($result);
 	if($rows_count > 0 ){
-	    echo "<script>alert('Tài khoản hoặc email đã tồn tại')</script>";
-	} else if($user_password != $user_passwordconfirm) echo "<script>alert('Xác thực mật khẩu không chính xác')</script>";
+	    echo "<script>alert('Account or email already exists')</script>";
+	} else if($user_password != $user_passwordconfirm) echo "<script>alert('Password authentication is incorrect')</script>";
 	else {
 	    $insert_query = "INSERT INTO `user_table` (username, user_password, user_email, user_address,user_ip, user_mobile, user_image) VALUES ('$user_username','$hash_password','$user_gmail','$user_adress','$user_ip','$user_phonenumber', '$user_image')";
 	    $sql_execute = mysqli_query($con, $insert_query);
 		if ($sql_execute){
-			echo "<script>alert('Đăng ký tài khoản thành công!')</script>";
+			echo "<script>alert('Successful account registration!')</script>";
 			$_SESSION['username'] = $user_username;
 		}
 		else{
-			echo "<script>alert('Xảy ra lỗi trong quá trình đăng ký')</script>";
+			echo "<script>alert('An error occurred during registration')</script>";
 		}
 	}
 
