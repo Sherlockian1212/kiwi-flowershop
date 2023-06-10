@@ -188,7 +188,7 @@
 	<!-- shop banner -->
 	<section class="shop-banner">
     	<div class="container">
-        	<h3>Graduation month is coming <br> with <span class="orange-text">khuyến mãi lớn...</span></h3>
+        	<h3>Graduation month is coming <br> with <span class="orange-text">big promotion...</span></h3>
             <div class="sale-percent"><span>Sale! <br> Upto</span>50% <span>off</span></div>
             <a href="shop.php" class="cart-btn btn-lg">Buy now</a>
         </div>
@@ -212,7 +212,7 @@
 						<div class="team-bg team-bg-1"></div>
 						<h4>Huỳnh Mạnh Tường<span>Backend Developer</span></h4>
 						<ul class="social-link-team">
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="https://www.facebook.com/manhtuong.2712" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
 						</ul>
@@ -223,7 +223,7 @@
 						<div class="team-bg team-bg-2"></div>
 						<h4>Thái Thị Kim Yến<span>Frontend Developer</span></h4>
 						<ul class="social-link-team">
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="https://www.facebook.com/InfanthayViet4ever/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
 						</ul>
@@ -234,7 +234,7 @@
 						<div class="team-bg team-bg-3"></div>
 						<h4>Trần Tú Quyên<span>UX-UI Designer - Backend Developer</span></h4>
 						<ul class="social-link-team">
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="https://www.facebook.com/profile.php?id=100007870594764" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
 						</ul>
@@ -245,7 +245,7 @@
 						<div class="team-bg team-bg-4"></div>
 						<h4>Hồ Sĩ Thiện<span>Frontend Developer - Backend Developer</span></h4>
 						<ul class="social-link-team">
-							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="https://www.facebook.com/thien.ho.505960" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
 							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
 						</ul>
