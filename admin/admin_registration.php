@@ -19,32 +19,41 @@ session_start();
     </head>
     <body>
 
-    <div class="login">
-        <div class="title">KIWI SHOP</div>
-        <form action="" method="post" enctype="multipart/form-data">
-            <div class="group">
-                <input type="text" id="admin_id" placeholder="Enter adminID" required="required" name="admin_id">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h3 class="text-center">KIWI SHOP</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <input type="text" id="admin_id" placeholder="Enter Admin ID" required="required" name="admin_id" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="admin_name" placeholder="Enter Admin Name" required="required" name="admin_name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="admin_gmail" placeholder="Enter Email" required="required" name="admin_email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="admin_password" placeholder="Enter Password" required="required" name="admin_password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="admin_password_confirm" placeholder="Confirm Password" required="required" name="admin_password_confirm" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary btn-block" value="Register" name="admin_register">
+                            </div>
+                            <div class="form-group text-center">
+                                <p>Bạn đã có tài khoản? <a href="admin_login.php">Login</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="group">
-                <input type="text" id="admin_name" placeholder="Enter adminname" required="required" name="admin_name">
-            </div>
-            <div class="group">
-                <input type="text" id="admin_gmail" placeholder="Enter email" required="required" name="admin_email">
-            </div>
-            <div class="group">
-                <input type="password" id="admin_password" placeholder="Enter password" required="required" name="admin_password">
-                <span id="showPassword"></span>
-            </div>
-            <div class="group">
-                <input type="password" id="admin_password_confirm" placeholder="Confirm password" required="required" name="admin_password_confirm">
-                <span id="showPassword"></span>
-            </div>
-            <div class="signIn">
-                <!--<button value="Register" name="admin_register"><a href="login.php" name="admin_register">Đăng kí</a></button>-->
-                <input type="submit" class="submit" value="Register" name="admin_register">
-                <p style="margin: 0; padding-top: 10px">Bạn đã có tài khoản?<a href="admin_login.php">Login</a></p>
-            </div>
-        </form>
+        </div>
     </div>
 
     <script src="../assets/js/login.js"></script>
@@ -71,23 +80,12 @@ if(isset($_POST['admin_register'])){
         $insert_query = "INSERT INTO `admin_table` (admin_id, admin_name, admin_password, admin_email) VALUES ('$admin_id','$admin_adminname','$hash_password','$admin_gmail')";
         $sql_execute = mysqli_query($con, $insert_query);
         if ($sql_execute){
-            echo "<script>alert('Đăng ký tài khoản thành công!')</script>";
+            echo "<script>alert('Create account successfully!')</script>";
             $_SESSION['adminname'] = $admin_adminname;
+            echo "<script>window.open('index.php', '_self')</script>";
         }
         else{
             echo "<script>alert('Xảy ra lỗi trong quá trình đăng ký')</script>";
         }
     }
-
-//    $select_cart_items = "Select * from `cart_details` where ip_address='$admin_ip'";
-//    $result_cart = mysqli_query($con, $select_cart_items);
-//    $rows_cart_count = mysqli_num_rows($result_cart);
-//    if ($rows_count > 0)
-//    {
-//        echo "<script>alert('You have items in your cart')</script>";
-//        echo "<script>window.open('payment.php', '_self')</script>";
-//    }
-//    else{
-//        echo "<script>window.open('../shop.php', '_self')</script>";
-//    }
 }
