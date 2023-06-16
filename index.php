@@ -275,25 +275,25 @@ session_start();
 				<!--Image Column-->
 				<div class="image-column col-lg-6">
 					<div class="image">
-						<div class="price-box">
-							<div class="inner-price">
-								<strong>30% OFF ORDER OVER 500000VNĐ</strong>
-							</div>
-						</div>
-						<img src="assets/img/phong_lan_1.jpg" alt="">
+<!--						<div class="price-box">-->
+<!--							<div class="inner-price">-->
+<!--								<strong>30% OFF ORDER OVER 500000VNĐ</strong>-->
+<!--							</div>-->
+<!--						</div>-->
+						<img src="admin/CottonCloudPeony.jpg" alt="">
 					</div>
 				</div>
 				<!--Content Column-->
 				<div class="content-column col-lg-6">
 					<h3><span class="orange-text">Best</span> seller</h3>
-					<div class="text">With big flowers and delicate colors, from pure white
+					<div class="text" style="text-align: justify">With big flowers and delicate colors, from pure white
 						beautiful to bright red, easy to care for and can live a long time.
 						A combination of beauty and practicality, orchid is the perfect choice
 						Perfect to decorate your living space and as a gift for your loved ones
 					</div>
 					<!--Countdown Timer-->
 					<div class="time-counter">
-						<div class="time-countdown clearfix" data-countdown="2020/2/01">
+						<div class="time-countdown clearfix" data-countdown="2023/6/16">
 							<div class="counter-column">
 								<div class="inner"><span class="count">00</span>Days</div>
 							</div>
@@ -308,8 +308,9 @@ session_start();
 							</div>
 						</div>
 					</div>
-					<a href="cart.php" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i>Add to cart</a>
+                    <a href="cart.php" class="cart-btn mt-3"><i class="fas fa-shopping-cart"></i>Add to cart</a>
 				</div>
+
 			</div>
 		</div>
 	</section>
