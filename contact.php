@@ -68,7 +68,7 @@
 								</li>
 								<li><a href="about.php">About us</a>
 								</li>
-								<li class="current-list-item"><a href="contact.html">Contact</a></li>
+								<li class="current-list-item"><a href="contact.php">Contact</a></li>
 								<li>
 									<div class="header-icons">
 										<a href="./user_area/profile.php" class="customer-account">

@@ -27,6 +27,33 @@ function getProducts()
                     </div>";
     }
 }
+function getNewProduct(){
+    global $con;
+    $select_query = "Select * from `products` order by product_title LIMIT 3";
+    $result_query = mysqli_query($con, $select_query);
+    while ($row = mysqli_fetch_assoc($result_query)) {
+        $product_id = $row['product_id'];
+        $product_title = $row['product_title'];
+        $product_description = $row['product_description'];
+        $product_keywords = $row['product_keywords'];
+        $category_id = $row['category_id'];
+        $product_image = $row['product_image'];
+        $product_price = $row['product_price'];
+        $date = $row['date'];
+        $status = $row['status'];
+        echo "
+                <div class='col-lg-4 col-md-6 text-center'>
+					<div class='single-product-item'>
+						<div class='product-image'>
+							<a href='single-product.php?product_id=$product_id'><img src='./admin/product_images/$product_image' alt=''></a>
+						</div>
+						<h3>$product_title</h3>
+						<p class='product-price'> $product_price </p>
+						<a href='cart.php' class='cart-btn'><i class='fas fa-shopping-cart'></i>Add to cart</a>
+					</div>
+				</div>";
+    }
+}
 
 function getCategories()
 {

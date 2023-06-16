@@ -63,7 +63,7 @@
 								</li>
 								<li><a href="shop.php">Product</a>
 								</li>
-								<li class="current-list-item"><a href="about.html">About us</a>
+								<li class="current-list-item"><a href="about.php">About us</a>
 								</li>
 								<li><a href="contact.php">Contact</a></li>
 								<li>

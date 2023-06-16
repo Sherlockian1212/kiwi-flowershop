@@ -68,7 +68,7 @@ session_start();
 						<!-- menu start -->
 						<nav class="main-menu">
 							<ul>
-								<li class="current-list-item"><a href="index.html">Home</a>
+								<li class="current-list-item"><a href="index.php">Home</a>
 								</li>
 								<li><a href="shop.php">Product</a>
 								</li>
@@ -261,36 +261,7 @@ session_start();
 			</div>
 
 			<div class="row">
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.php"><img src="assets/img/products/tulip_hong.jpg" alt=""></a>
-						</div>
-						<h3>Pink Tulips</h3>
-						<p class="product-price"> 70000VNĐ </p>
-						<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Add to cart</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.php"><img src="assets/img/products/hoa_hong_trang.jpg" alt=""></a>
-						</div>
-						<h3>Pink orchids</h3>
-						<p class="product-price"> 70000VNĐ </p>
-						<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Add to card</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center">
-					<div class="single-product-item">
-						<div class="product-image">
-							<a href="single-product.php"><img src="assets/img/products/hoa_hong_trang.jpg" alt=""></a>
-						</div>
-						<h3>White Rose</h3>
-						<p class="product-price"> 35000VNĐ </p>
-						<a href="cart.php" class="cart-btn"><i class="fas fa-shopping-cart"></i>Add to card</a>
-					</div>
-				</div>
+                <?php getNewProduct();?>
 			</div>
 		</div>
 	</div>
