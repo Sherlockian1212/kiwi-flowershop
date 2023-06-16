@@ -11,7 +11,7 @@ function getProducts()
         $product_keywords = $row['product_keywords'];
         $category_id = $row['category_id'];
         $product_image = $row['product_image'];
-        $product_price = $row['product_price'];
+        $product_price = number_format($row['product_price']);
         $date = $row['date'];
         $status = $row['status'];
         echo "
@@ -38,7 +38,7 @@ function getNewProduct(){
         $product_keywords = $row['product_keywords'];
         $category_id = $row['category_id'];
         $product_image = $row['product_image'];
-        $product_price = $row['product_price'];
+        $product_price = number_format($row['product_price']);
         $date = $row['date'];
         $status = $row['status'];
         echo "
@@ -85,7 +85,7 @@ function searchProduct()
             $product_keywords = $row['product_keywords'];
             $category_id = $row['category_id'];
             $product_image = $row['product_image'];
-            $product_price = $row['product_price'];
+            $product_price = number_format($row['product_price']);
             $date = $row['date'];
             $status = $row['status'];
             echo "
@@ -118,7 +118,7 @@ function viewDetails()
                 $product_keywords = $row['product_keywords'];
                 $category_id = $row['category_id'];
                 $product_image = $row['product_image'];
-                $product_price = $row['product_price'];
+                $product_price = number_format($row['product_price']);
                 $date = $row['date'];
                 $status = $row['status'];
                 echo "
@@ -168,7 +168,7 @@ function viewRelatedProduct()
                     $relate_id = $relate['product_id'];
                     $relate_name = $relate['product_title'];
                     $relate_image = $relate['product_image'];
-                    $relate_price = $relate['product_price'];
+                    $relate_price = number_format($relate['product_price']);
                     echo "<div class='col-lg-4 col-md-6 text-center'>
 						<div class='single-product-item'>
 							<div class='product-image'>
@@ -263,8 +263,8 @@ function total_cart_price()
             $total += $product_values * $product_quantity;
         }
     }
-    $totalCartPrice = $total;
-    echo $total;
+    $totalCartPrice = number_format($total);
+    echo number_format($total);
 }
 function update_cart()
 {
@@ -313,10 +313,10 @@ function getCartItemInfo()
             $result_products = mysqli_query($con, $select_products);
             while ($row_product_price = mysqli_fetch_array($result_products)) {
                 $product_price = array($row_product_price['product_price']);
-                $product_table = $row_product_price['product_price'];
+                $product_table = number_format($row_product_price['product_price']);
                 $product_title = $row_product_price['product_title'];
                 $product_image = $row_product_price['product_image'];
-                $product_values = array_sum($product_price) * $product_quantity;
+                $product_values = number_format(array_sum($product_price) * $product_quantity);
                 echo "<tr class='table-body-row'>
                         <td class='product-remove'><a href='cart.php?remove_id=$product_id'><i class='far fa-window-close'></i></a></td>
                         <td class='product-image'><img src='admin/product_images/$product_image'></td>
