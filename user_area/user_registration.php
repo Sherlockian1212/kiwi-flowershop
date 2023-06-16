@@ -26,7 +26,7 @@ session_start();
 			<input type="text" id="user_name" placeholder="Enter username" required="required" name="user_username">
 		</div>
 		<div class="group">
-			<input type="text" id="user_gmail" placeholder="Enter email" required="required" name="user_email">
+			<input type="text" id="user_email" placeholder="Enter email" required="required" name="user_email">
 		</div>
 		<div class="group">
 			<input type="password" id="user_password" placeholder="Enter password" required="required" name="user_password">
