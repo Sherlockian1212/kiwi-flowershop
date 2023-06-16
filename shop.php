@@ -111,13 +111,14 @@ session_start();
 			<div class="row">
 				<div class="col-lg-12">
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
+					<form class="search-bar" action="" method="get">
 						<div class="search-bar-tablecell">
-							<h3>What do you want to search?</h3>
-							<input type="text" placeholder="Key">
-							<button type="submit">Search<i class="fas fa-search"></i></button>
+							<h3>Search For:</h3>
+							<input type="search" placeholder="Keywords" name="search_data">
+							<button name="search_data_product" value="Search" type="submit">Search<i
+									class="fas fa-search"></i></button>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>

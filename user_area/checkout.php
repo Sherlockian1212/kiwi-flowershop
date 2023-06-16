@@ -1,8 +1,21 @@
 <?php
 global $con;
-include('../include/connect.php');
-include('../function/common_functions.php');
 session_start();
+if(!isset($_SESSION['username'])){
+	include('user_login.php');
+}
+else{
+	include('../include/connect.php');
+	include('../function/common_functions.php');
+	$user_ip=getIPAddress();
+	$user_username = $_SESSION['username'];
+	$get_user="Select * from `user_table` where user_ip='$user_ip' and username='$user_username'";
+	$result=mysqli_query($con,$get_user);
+	$run_query=mysqli_fetch_array($result);
+	$user_id=$run_query['user_id'];
+	echo "<script>window.open('order.php?user_id=$user_id', '_self')</script>";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,19 +53,7 @@ session_start();
 </head>
 <body>
 	<?php
-	if(!isset($_SESSION['username'])){
-		include('user_login.php');
-	}
-	else{
-//		include('payment.php');
-		$user_ip=getIPAddress();
-		$user_username = $_SESSION['username'];
-		$get_user="Select * from `user_table` where user_ip='$user_ip' and username='$user_username'";
-		$result=mysqli_query($con,$get_user);
-		$run_query=mysqli_fetch_array($result);
-		$user_id=$run_query['user_id'];
-		echo "<script>window.open('order.php?user_id=$user_id', '_self')</script>";
-	}
+
 	?>
 	<!-- jquery -->
 	<script src="../assets/js/jquery-1.11.3.min.js"></script>

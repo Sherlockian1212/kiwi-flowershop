@@ -48,8 +48,7 @@ function getNewProduct(){
 							<a href='single-product.php?product_id=$product_id'><img src='./admin/product_images/$product_image' alt=''></a>
 						</div>
 						<h3>$product_title</h3>
-						<p class='product-price'> $product_price </p>
-						<a href='cart.php' class='cart-btn'><i class='fas fa-shopping-cart'></i>Add to cart</a>
+						<p class='product-price'> $product_price VNĐ</p>
 					</div>
 				</div>";
     }

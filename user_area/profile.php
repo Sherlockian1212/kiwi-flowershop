@@ -181,7 +181,6 @@ session_start();
     </div>
     <!-- end single product -->
 
-    !-- footer -->
 	<div class="footer-area">
 		<div class="container">
 			<div class="row">

@@ -1,3 +1,9 @@
+<?php
+global $con;
+include('include/connect.php');
+include('function/common_functions.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,9 +77,13 @@
 								<li class="current-list-item"><a href="contact.php">Contact</a></li>
 								<li>
 									<div class="header-icons">
-										<a href="./user_area/profile.php" class="customer-account">
-											<i class="fas fa-user-alt"></i>
-										</a>
+										<?php
+										if (!isset($_SESSION['username'])) {
+											echo "<a href='./user_area/user_login.php'>Welcome Guest</a>";
+										} else {
+											echo "<a href='./user_area/profile.php'>Welcome " . $_SESSION['username'] . "</a>";
+										}
+										?>
 										<a class="shopping-cart" href="cart.php"><i class="fas
 													fa-shopping-cart"></i></a>
 										<a class="mobile-hide search-bar-icon" href="#"><i class="fas
@@ -82,7 +92,7 @@
 								</li>
 							</ul>
 						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<a class="mobile-show search-bar-icon" href="shop.php"><i class="fas fa-search"></i></a>
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
 					</div>
@@ -98,13 +108,14 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
+					<form class="search-bar" action="" method="get">
 						<div class="search-bar-tablecell">
-							<h3>What do you want to search?</h3>
-							<input type="text" placeholder="Key">
-							<button type="submit">Search<i class="fas fa-search"></i></button>
+							<h3>Search For:</h3>
+							<input type="search" placeholder="Keywords" name="search_data">
+							<button name="search_data_product" value="Search" type="submit">Search<i
+									class="fas fa-search"></i></button>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,127 @@
+body{
+    background: linear-gradient(135deg, #FACDE5 0%, #EFC3DB 72.92%, #F0CBDF 97.59%);
+    font-family: 'Inter', sans-serif;
+}
+
+.rectangle{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+img{
+    border-radius: 40px;
+    width: 300px;
+    height: 350px;
+    margin: 30px 0px 30px 20px;
+}
+
+.form-login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    width: 300px;
+}
+
+
+.form-login > h2 {
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    color: #807B7B;
+}
+
+.form-login > a {
+    align-self: flex-end;
+    text-decoration: none;
+}
+
+.form-login > p{
+    justify-self: flex-end;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    width: 130%;
+    height: 50px;
+    border-radius: 20px;
+    background: #d9d9d9;
+    border: #d9d9d9;
+    margin-bottom: 10px;
+    font-size: 15px;
+    padding-left: 20%;
+}
+
+button{
+    width: 150%;
+    height: 50px;
+    border-radius: 20px;
+    background: #DE91BC;
+    border: #DE91BC;
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#username{
+    background-image: url('https://th.bing.com/th/id/OIP.2O5tTQCqRi2a6hW8JjoFbAHaHa?pid=ImgDet&w=980&h=981&rs=1');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 16px 16px; /* Kích thước của icon */
+}
+#email{
+    background-image: url('https://th.bing.com/th/id/R.2a5b216f26be05b1c77bea8fa392e42c?rik=MA5i23OCHQ4XeA&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fdownload_248319.png&ehk=4Fu5tCC1wITFdlTPV5Fdq5T3vBxUisNLPftLh88kRQI%3d&risl=&pid=ImgRaw&r=0');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 16px 16px; /* Kích thước của icon */
+}
+#password{
+    background-image: url('https://th.bing.com/th/id/R.16902e5435c87f8769bbc7ab3a27a103?rik=IJMd%2bMM1JfI1vg&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_321879.png&ehk=EkapyumyJSRtKdHQvpG4pvtjx7%2bb5CbkxFFJlG2aCzs%3d&risl=&pid=ImgRaw&r=0');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 16px 16px; /* Kích thước của icon */
+}
+
+@media (width >= 300px){
+    .rectangle{
+        width: 400px;
+    }
+}
+
+@media (width >= 700px){
+    .rectangle{
+        width: 700px;
+    }
+}
+
+.fa-user {
+    position: absolute; /* Để icon search nằm trên cùng bên trái của input */
+    margin-top: 10px; /* Để icon search ở giữa chiều cao của input */
+    margin-left: 10px; /* Để icon search cách lề trái input một khoảng */
+    color: gray; /* Để icon search có màu xám */
+}

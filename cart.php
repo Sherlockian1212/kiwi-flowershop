@@ -108,7 +108,7 @@ session_start();
 								</li>
 							</ul>
 						</nav>
-						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<a class="mobile-show search-bar-icon" href="shop.php"><i class="fas fa-search"></i></a>
 						<div class="mobile-menu"></div>
 						<!-- menu end -->
 					</div>
@@ -124,13 +124,14 @@ session_start();
 			<div class="row">
 				<div class="col-lg-12">
 					<span class="close-btn"><i class="fas fa-window-close"></i></span>
-					<div class="search-bar">
+					<form class="search-bar" action="" method="get">
 						<div class="search-bar-tablecell">
-							<h3>What do you want to search?</h3>
-							<input type="text" placeholder="Key">
-							<button type="submit">Search<i class="fas fa-search"></i></button>
+							<h3>Search For:</h3>
+							<input type="search" placeholder="Keywords" name="search_data">
+							<button name="search_data_product" value="Search" type="submit">Search<i
+									class="fas fa-search"></i></button>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -194,7 +195,7 @@ session_start();
 								</tr>
 								<tr class="total-data">
 									<td><strong>Transport fee:</strong></td>
-									<td>45000 VNĐ</td>
+									<td>0 VNĐ</td>
 								</tr>
 								<tr class="total-data">
 									<td><strong>Total: </strong></td>
@@ -211,16 +212,6 @@ session_start();
 							<a href="user_area/checkout.php" class="boxed-btn black">Order</a>
 						</div>
 					</div>
-
-					<!--					<div class="coupon-section">-->
-					<!--						<h3>Áp dụng khuyến mãi</h3>-->
-					<!--						<div class="coupon-form-wrap">-->
-					<!--							<form action="index.php">-->
-					<!--								<p><input type="text" placeholder="Mã giảm giá"></p>-->
-					<!--								<p><input type="submit" value="Kiểm tra"></p>-->
-					<!--							</form>-->
-					<!--						</div>-->
-					<!--					</div>-->
 				</div>
 			</form>
 		</div>

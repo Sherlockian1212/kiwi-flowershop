@@ -2,7 +2,7 @@
 global $con;
 include('include/connect.php');
 include('function/common_functions.php');
-
+session_start();
 if (isset($_GET['user_id'])){
     $user_id=$_GET['user_id'];
 

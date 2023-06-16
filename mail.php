@@ -33,12 +33,11 @@
 		<?php echo $message; ?>
 		<br />
 		<br />
-		============================================================
 	<?php
 	$body = ob_get_contents();
 	ob_end_clean();
 	
-	$to = 'support@fruitkha.com';
+	$to = 'manhtuonh123@gmail.com';
 
 	$s = mail($to,$subject,$body,$headers,"-t -i -f $from");
 
@@ -47,6 +46,4 @@
 	}else{
 		echo '<div>Your message sending failed!</div>';
 	}
-
-	
 ?>
